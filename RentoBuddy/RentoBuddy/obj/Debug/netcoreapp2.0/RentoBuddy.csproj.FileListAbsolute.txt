@@ -1,0 +1,12 @@
+D:\Source\RentoBuddy\RentoBuddy\bin\Debug\netcoreapp2.0\RentoBuddy.deps.json
+D:\Source\RentoBuddy\RentoBuddy\bin\Debug\netcoreapp2.0\RentoBuddy.runtimeconfig.json
+D:\Source\RentoBuddy\RentoBuddy\bin\Debug\netcoreapp2.0\RentoBuddy.runtimeconfig.dev.json
+D:\Source\RentoBuddy\RentoBuddy\bin\Debug\netcoreapp2.0\RentoBuddy.dll
+D:\Source\RentoBuddy\RentoBuddy\bin\Debug\netcoreapp2.0\RentoBuddy.pdb
+D:\Source\RentoBuddy\RentoBuddy\obj\Debug\netcoreapp2.0\RentoBuddy.csprojResolveAssemblyReference.cache
+D:\Source\RentoBuddy\RentoBuddy\obj\Debug\netcoreapp2.0\RentoBuddy.csproj.CoreCompileInputs.cache
+D:\Source\RentoBuddy\RentoBuddy\obj\Debug\netcoreapp2.0\UserSecretsAssemblyInfo.cs
+D:\Source\RentoBuddy\RentoBuddy\obj\Debug\netcoreapp2.0\RentoBuddy.AssemblyInfoInputs.cache
+D:\Source\RentoBuddy\RentoBuddy\obj\Debug\netcoreapp2.0\RentoBuddy.AssemblyInfo.cs
+D:\Source\RentoBuddy\RentoBuddy\obj\Debug\netcoreapp2.0\RentoBuddy.dll
+D:\Source\RentoBuddy\RentoBuddy\obj\Debug\netcoreapp2.0\RentoBuddy.pdb

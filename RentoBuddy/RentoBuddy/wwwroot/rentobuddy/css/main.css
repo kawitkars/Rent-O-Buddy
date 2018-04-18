@@ -377,7 +377,18 @@ Input, textarea : 14px/1.6 '', Arial, sans-serif;
   -moz-transition: all 0.4s;
 }
 
-.header-v3 .main-menu > li > a {
+    .main-menu > li > button {
+        font-family: Poppins-Medium;
+        font-size: 14px;
+        color: #333;
+        padding: 5px 0px;
+        transition: all 0.4s;
+        -webkit-transition: all 0.4s;
+        -o-transition: all 0.4s;
+        -moz-transition: all 0.4s;
+    }
+
+.header-v3 .main-menu > li > a .main-menu > li > button {
   color: #fff;
 }
 
@@ -441,6 +452,11 @@ Input, textarea : 14px/1.6 '', Arial, sans-serif;
 .main-menu > li:hover > a {
   text-decoration: none;
   color: #6c7ae0;
+}
+
+.main-menu > li:hover > button {
+    text-decoration: none;
+    color: #6c7ae0;
 }
 
 .main-menu > li:hover > .sub-menu {

@@ -26,6 +26,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Models\CustomerViewModels\" />
     <Folder Include="wwwroot\images\carousel_images\" />
   </ItemGroup>
 

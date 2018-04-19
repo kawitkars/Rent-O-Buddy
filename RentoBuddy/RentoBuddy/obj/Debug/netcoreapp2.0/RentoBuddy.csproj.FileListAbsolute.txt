@@ -21,3 +21,4 @@ D:\RentoBuddy\Web-Tools-RentOBuddy\RentoBuddy\RentoBuddy\obj\Debug\netcoreapp2.0
 D:\RentoBuddy\Web-Tools-RentOBuddy\RentoBuddy\RentoBuddy\obj\Debug\netcoreapp2.0\RentoBuddy.AssemblyInfo.cs
 D:\RentoBuddy\Web-Tools-RentOBuddy\RentoBuddy\RentoBuddy\obj\Debug\netcoreapp2.0\RentoBuddy.dll
 D:\RentoBuddy\Web-Tools-RentOBuddy\RentoBuddy\RentoBuddy\obj\Debug\netcoreapp2.0\RentoBuddy.pdb
+D:\RentoBuddy\Web-Tools-RentOBuddy\RentoBuddy\RentoBuddy\obj\Debug\netcoreapp2.0\RentoBuddy.csprojResolveAssemblyReference.cache

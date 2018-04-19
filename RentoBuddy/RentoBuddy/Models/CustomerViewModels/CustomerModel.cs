@@ -25,5 +25,7 @@ namespace RentoBuddy.Models.HotelViewModels
 
         [DataType(DataType.EmailAddress)]
         public string EmailAddress { get; set; }
+
+
     }
 }

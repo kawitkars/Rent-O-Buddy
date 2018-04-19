@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace RentoBuddy.Models.ProductViewModels
+namespace RentoBuddyAPI.Models
 {
     public class ProductModel
     {
@@ -22,6 +22,5 @@ namespace RentoBuddy.Models.ProductViewModels
         public string ProductCategory { get; set; }
 
         public double RentPerMonth { get; set; }
-
     }
 }

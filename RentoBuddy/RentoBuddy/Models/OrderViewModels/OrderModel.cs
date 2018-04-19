@@ -1,4 +1,5 @@
 ﻿using RentoBuddy.Models.HotelViewModels;
+using RentoBuddy.Models.OrderViewModels;
 using RentoBuddy.Models.ProductViewModels;
 using System;
 using System.Collections.Generic;
@@ -13,7 +14,7 @@ namespace RentoBuddy.Models.CartViewModels
 
         public CustomerModel CustomerModel { get; set; }
 
-        public List<ProductModel> ProductModel { get; set; }
+        public List<OrderProductModel> OrderProductModel { get; set; }
 
         public int RentalPeriodInMonths { get; set; }
 
@@ -24,5 +25,9 @@ namespace RentoBuddy.Models.CartViewModels
         public double TotalCostForOrder { get; set; }
 
         public double TaxesApplied { get; set; }
+
+        public string DiscountCode { get; set; }
+
+        public double DiscountApplied { get; set; }
     }
 }

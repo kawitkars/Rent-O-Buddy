@@ -11,6 +11,7 @@ namespace RentoBuddyAPI.Models
     {
         List<ProductModel> _products;
         public static int productId = 1;
+
         public ProductManager()
         {
             try
@@ -32,8 +33,9 @@ namespace RentoBuddyAPI.Models
                             IsInStock = true,
                             ProductDetails="Sofa set for Living Room",
                             ProductName = "Sofa Set 1",
-                            RentPerMonth = 50.0
-                        }
+                            RentPerMonth = 50.0,
+                            ProductImageLink = @"\images\about-02.jpg"
+                }
                     };
                     WriteProductsList(_products);
                 }

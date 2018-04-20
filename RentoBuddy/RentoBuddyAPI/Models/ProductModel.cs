@@ -22,5 +22,7 @@ namespace RentoBuddyAPI.Models
         public string ProductCategory { get; set; }
 
         public double RentPerMonth { get; set; }
+
+        public string ProductImageLink { get; set; }
     }
 }

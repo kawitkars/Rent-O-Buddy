@@ -45,12 +45,13 @@
     [ Fixed Header ]*/
     var headerDesktop = $('.container-menu-desktop');
     var wrapMenu = $('.wrap-menu-desktop');
+    var posWrapHeader;
 
     if($('.top-bar').length > 0) {
-        var posWrapHeader = $('.top-bar').height();
+        posWrapHeader = $('.top-bar').height();
     }
     else {
-        var posWrapHeader = 0;
+        posWrapHeader = 0;
     }
     
 
@@ -85,21 +86,21 @@
     var arrowMainMenu = $('.arrow-main-menu-m');
 
     for(var i=0; i<arrowMainMenu.length; i++){
-        $(arrowMainMenu[i]).on('click', function(){
+        $(arrowMainMenu[i]).on('click', function () {
             $(this).parent().find('.sub-menu-m').slideToggle();
             $(this).toggleClass('turn-arrow-main-menu-m');
-        })
+        });
     }
 
     $(window).resize(function(){
         if($(window).width() >= 992){
-            if($('.menu-mobile').css('display') == 'block') {
+            if($('.menu-mobile').css('display') === 'block') {
                 $('.menu-mobile').css('display','none');
                 $('.btn-show-menu-mobile').toggleClass('is-active');
             }
 
             $('.sub-menu-m').each(function(){
-                if($(this).css('display') == 'block') { console.log('hello');
+                if($(this).css('display') === 'block') { console.log('hello');
                     $(this).css('display','none');
                     $(arrowMainMenu).removeClass('turn-arrow-main-menu-m');
                 }
@@ -268,14 +269,14 @@
     
     /*==================================================================
     [ Show modal1 ]*/
-    $('.js-show-modal1').on('click',function(e){
-        e.preventDefault();
-        $('.js-modal1').addClass('show-modal1');
-    });
+    //$('.js-show-modal1').on('click',function(e){
+    //    e.preventDefault();
+    //    $('.js-modal1').addClass('show-modal1');
+    //});
 
-    $('.js-hide-modal1').on('click',function(){
-        $('.js-modal1').removeClass('show-modal1');
-    });
+    //$('.js-hide-modal1').on('click',function(){
+    //    $('.js-modal1').removeClass('show-modal1');
+    //});
 
 
 

@@ -23,5 +23,7 @@ namespace RentoBuddy.Models.ProductViewModels
 
         public double RentPerMonth { get; set; }
 
+        public string ProductImageLink { get; set; }
+
     }
 }

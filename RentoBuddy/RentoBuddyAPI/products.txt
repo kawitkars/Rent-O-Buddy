@@ -1,1 +1,1 @@
-[{"ProductId":1,"ProductName":"Sofa Set 1","ProductDetails":"Sofa set for Living Room","Manufacturer":"Rivet Sloane","IsInStock":true,"Availability":20,"ProductCategory":"Living","RentPerMonth":50.0}]
+[{"ProductId":1,"ProductName":"Sofa Set 1","ProductDetails":"Sofa set for Living Room","Manufacturer":"Rivet Sloane","IsInStock":true,"Availability":20,"ProductCategory":"Living","RentPerMonth":50.0,"ProductImageLink":"\\images\\about-02.jpg"}]

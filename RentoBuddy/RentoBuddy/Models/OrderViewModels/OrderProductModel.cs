@@ -1,6 +1,7 @@
 ﻿using RentoBuddy.Models.ProductViewModels;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel;
 using System.Linq;
 using System.Threading.Tasks;
 
@@ -20,4 +21,7 @@ namespace RentoBuddy.Models.OrderViewModels
 
         public int Quantity { get; set; }
     }
+
+
+
 }

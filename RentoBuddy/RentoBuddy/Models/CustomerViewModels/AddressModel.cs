@@ -7,17 +7,31 @@ namespace RentoBuddy.Models.HotelViewModels
 {
     public class AddressModel
     {
-        public string AddressLine1 { get; set; }
+        public string AddressLine1_Billing { get; set; }
 
-        public string AddressLine2 { get; set; }
+        public string AddressLine2_Billing { get; set; }
 
-        public string City { get; set; }
+        public string City_Billing { get; set; }
 
-        public string State { get; set; }
+        public string State_Billing { get; set; }
 
-        public string ZipCode { get; set; }
+        public string ZipCode_Billing { get; set; }
 
-        public string Country { get; set; }
+        public string Country_Billing { get; set; }
+
+        public string AddressLine1_Shipping { get; set; }
+
+        public string AddressLine2_Shipping { get; set; }
+
+        public string City_Shipping { get; set; }
+
+        public string State_Shipping { get; set; }
+
+        public string ZipCode_Shipping { get; set; }
+
+        public string Country_Shipping { get; set; }
+
+        public bool IsSameAsBilling { get; set; }
     }
 
 

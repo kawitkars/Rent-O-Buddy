@@ -13,7 +13,7 @@ namespace RentoBuddy.Controllers
 {
     public class CartController : Controller
     {
-        public static int orderId = 1;
+        
         public IActionResult Index()
         {
             return View();
@@ -44,6 +44,7 @@ namespace RentoBuddy.Controllers
                 cartViewModel.ProductsInCart = new List<OrderProductModel>();
                 cartViewModel.ProductsInCart.Add(orderProductModel);
             }
+            HttpContext.Session.SetObjectAsJson("CartViewModel", cartViewModel);
             return View("Cart", cartViewModel);
         }
     }

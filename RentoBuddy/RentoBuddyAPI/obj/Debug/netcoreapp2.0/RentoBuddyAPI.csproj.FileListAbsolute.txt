@@ -8,3 +8,4 @@ D:\RentoBuddy\Web-Tools-RentOBuddy\RentoBuddy\RentoBuddyAPI\obj\Debug\netcoreapp
 D:\RentoBuddy\Web-Tools-RentOBuddy\RentoBuddy\RentoBuddyAPI\bin\Debug\netcoreapp2.0\RentoBuddyAPI.pdb
 D:\RentoBuddy\Web-Tools-RentOBuddy\RentoBuddy\RentoBuddyAPI\obj\Debug\netcoreapp2.0\RentoBuddyAPI.dll
 D:\RentoBuddy\Web-Tools-RentOBuddy\RentoBuddy\RentoBuddyAPI\obj\Debug\netcoreapp2.0\RentoBuddyAPI.pdb
+D:\RENTOBUDDY\Web-Tools-RentOBuddy\RentoBuddy\RentoBuddyAPI\obj\Debug\netcoreapp2.0\RentoBuddyAPI.csprojResolveAssemblyReference.cache

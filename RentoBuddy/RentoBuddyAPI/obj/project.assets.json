@@ -13130,11 +13130,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\RentoBuddy\\Web-Tools-RentOBuddy\\RentoBuddy\\RentoBuddyAPI\\RentoBuddyAPI.csproj",
+      "projectUniqueName": "D:\\RENTOBUDDY\\Web-Tools-RentOBuddy\\RentoBuddy\\RentoBuddyAPI\\RentoBuddyAPI.csproj",
       "projectName": "RentoBuddyAPI",
-      "projectPath": "D:\\RentoBuddy\\Web-Tools-RentOBuddy\\RentoBuddy\\RentoBuddyAPI\\RentoBuddyAPI.csproj",
+      "projectPath": "D:\\RENTOBUDDY\\Web-Tools-RentOBuddy\\RentoBuddy\\RentoBuddyAPI\\RentoBuddyAPI.csproj",
       "packagesPath": "C:\\Users\\Neha Pednekar\\.nuget\\packages\\",
-      "outputPath": "D:\\RentoBuddy\\Web-Tools-RentOBuddy\\RentoBuddy\\RentoBuddyAPI\\obj\\",
+      "outputPath": "D:\\RENTOBUDDY\\Web-Tools-RentOBuddy\\RentoBuddy\\RentoBuddyAPI\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\",

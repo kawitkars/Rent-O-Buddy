@@ -94,15 +94,15 @@ new { id = "addToCart" }))
                     <div class="col-md-6 col-lg-5 p-b-30">
                         <div class="p-r-50 p-t-5 p-lr-0-lg">
                             <h4 class="mtext-105 cl2 js-name-detail p-b-14">
-                                Lightweight Jacket
+                                @Model.ProductData[0].ProductName
                             </h4>
 
                             <span class="mtext-106 cl2">
-                                $58.79
+                                $@Model.RentAmount
                             </span>
 
                             <p class="stext-102 cl3 p-t-23">
-                                Nulla eget sem vitae eros pharetra viverra. Nam vitae luctus ligula. Mauris consequat ornare feugiat.
+                                @Model.ProductData[0].ProductDetails
                             </p>
 
                             <!--  -->
@@ -169,9 +169,15 @@ new
                                                 <i class="fs-16 zmdi zmdi-minus"></i>
                                             </div>
 
-                                            <input class="mtext-104 cl3 txt-center num-product" type="number" name="num-product" value="1">
+                                            @Html.EditorFor(model => model.Quantity,
+                                           new { htmlAttributes = new { @type = "number",
+                                               @value = "0", @class= "mtext-104 cl3 txt-center num-product",
+                                               @name="num-product"
+                                            }})
 
-                                            <div class="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m">
+                                            @*<input class="mtext-104 cl3 txt-center num-product" type="number" name="num-product" value="0">*@
+
+                                            <div id="btn-up" class="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m">
                                                 <i class="fs-16 zmdi zmdi-plus"></i>
                                             </div>
                                         </div>

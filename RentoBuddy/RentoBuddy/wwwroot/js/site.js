@@ -120,3 +120,19 @@ var readyInterval = setInterval(function () {
         clearInterval(readyInterval);
     }
 }, 250);
+
+//Dynamically change the value of total price
+
+//$('#btn-num-up').click(function () {
+//    var tot = $('#rentPerMonth').val() * $('#num-product1').value;
+//    $('#perProductTotal').val(tot);
+//});
+
+function onQtyChanged() {
+
+    var a = document.getElementById('num-product1');
+    var b = document.getElementById('rentPerProduct');
+    var c = a.value * b.innerHTML;
+    document.getElementById('perProductTotal').innerHTML = c;
+
+}

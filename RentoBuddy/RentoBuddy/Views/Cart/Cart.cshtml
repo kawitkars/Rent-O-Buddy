@@ -117,7 +117,7 @@ ViewData["Title"] = "Cart";
 </a>
 
 <span class="stext-109 cl4">
-    Shoping Cart
+    Shopping Cart
 </span>
 </div>
 </div>
@@ -143,7 +143,7 @@ new { @id = "addToCart", @class = "bg0 p-t-75 p-b-85" }))
                             <th class="column-5">Total</th>
                         </tr>
 
-                        @foreach (var cartProduct in Model.ProductsInCart)
+                        @for (var i = 0; i < Model.ProductsInCart.Count; i++)
                         {
                     <tr class="table_row">
                         <td class="column-1">
@@ -151,23 +151,40 @@ new { @id = "addToCart", @class = "bg0 p-t-75 p-b-85" }))
                                 <img src="images/item-cart-04.jpg" alt="IMG">
                             </div>
                         </td>
-                        <td class="column-2">@cartProduct.ProductData[0].ProductName</td>
-                        <td class="column-3">$@cartProduct.ProductData[0].RentPerMonth</td>
+                        <td class="column-2">@Model.ProductsInCart[i].ProductData[0].ProductName</td>
+                        <td class="column-3" id="rentPerProduct">@(Model.ProductsInCart[i].ProductData[0].RentPerMonth *
+                                            Model.ProductsInCart[i].RentalDurationInMonths)</td>
                         <td class="column-4">
                             <div class="wrap-num-product flex-w m-l-auto m-r-0">
                                 <div class="btn-num-product-down cl8 hov-btn3 trans-04 flex-c-m">
                                     <i class="fs-16 zmdi zmdi-minus"></i>
                                 </div>
 
-                                <input class="mtext-104 cl3 txt-center num-product" type="number" name="num-product1" 
-                                        value=@cartProduct.Quantity>
+                                @Html.EditorFor(m => m.ProductsInCart[i].Quantity,
 
-                                <div class="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m">
+new
+{
+    htmlAttributes = new
+    {
+        @type = "number",
+        //@value = @Model.ProductsInCart[i].Quantity,
+        @class = "mtext-104 cl3 txt-center num-product",
+        @name = "num-product1",
+        @id = "num-product1"
+    }
+})
+
+                                @*<input class="mtext-104 cl3 txt-center num-product" type="number" name="num-product1"
+                value=@cartProduct.Quantity>*@
+
+                                <div name="btn-num-up" id="btn-num-up" 
+                                     class="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m"
+                                     onclick="onQtyChanged();">
                                     <i class="fs-16 zmdi zmdi-plus"></i>
                                 </div>
                             </div>
                         </td>
-                        <td class="column-5">$@cartProduct.ProductData[0].RentPerMonth X @cartProduct.RentalDurationInMonths</td>
+                        <td class="column-5" id="perProductTotal">$@(Model.ProductsInCart[i].ProductData[0].RentPerMonth * Model.ProductsInCart[i].RentalDurationInMonths * Model.ProductsInCart[i].Quantity);</td>
                     </tr>
 
 }
@@ -314,7 +331,7 @@ new
                 <div class="flex-w flex-t bor12 p-t-15 p-b-30">
                     <div class="size-208 w-full-ssm">
                         <span class="stext-110 cl2">
-                            Address Details:
+                            Billing Address Details:
                         </span>
                     </div>
 
@@ -424,6 +441,118 @@ new
                                     Shipping Address is same as Billing Address
                                 </span>
                             </div>
+                        </div>
+                    </div>
+
+                </div>
+
+                <div class="flex-w flex-t bor12 p-t-15 p-b-30">
+                    <div class="size-208 w-full-ssm">
+                        <span class="stext-110 cl2">
+                            Shipping Address Details:
+                        </span>
+                    </div>
+
+                    <div class="size-209 p-r-18 p-r-0-sm w-full-ssm">
+                        <p class="stext-111 cl6 p-t-2">
+                            Please enter all the fields marked with *(asterisk)
+                        </p>
+
+                        <div class="p-t-15">
+                            <span class="stext-112 cl8">
+                                Shipping Address
+                            </span>
+
+
+
+                            <div class="bor8 bg0 m-b-12">
+                                @Html.TextBoxFor(m => m.CustomerModel.Address.AddressLine1_Shipping, "Address Line 1",
+new
+{
+@class = "stext-111 cl8 plh3 size-111 p-lr-15",
+@style = "width: 100%",
+@type = "text",
+@name = "addressLine1",
+@id = "addressLine1",
+@placeholder = "Address Line 1"
+})
+                            </div>
+
+
+                            <div class="bor8 bg0 m-b-12">
+                                @Html.TextBoxFor(m => m.CustomerModel.Address.AddressLine2_Shipping, "Address Line 2",
+new
+{
+@class = "stext-111 cl8 plh3 size-111 p-lr-15",
+@style = "width: 100%",
+@type = "text",
+@name = "addressLine2",
+@id = "addressLine2",
+@placeholder = "Address Line 2"
+})
+                            </div>
+
+                            <div class="bor8 bg0 m-b-12">
+                                @Html.TextBoxFor(m => m.CustomerModel.Address.City_Shipping, "City",
+new
+{
+@class = "stext-111 cl8 plh3 size-111 p-lr-15",
+@style = "width: 100%",
+@type = "text",
+@name = "city",
+@id = "city",
+@placeholder = "City"
+})
+                            </div>
+
+                            <div class="bor8 bg0 m-b-12">
+                                @Html.TextBoxFor(m => m.CustomerModel.Address.State_Shipping, "State",
+new
+{
+@class = "stext-111 cl8 plh3 size-111 p-lr-15",
+@style = "width: 100%",
+@type = "text",
+@name = "state",
+@id = "state",
+@placeholder = "State"
+})
+                            </div>
+
+                            <div class="bor8 bg0 m-b-22">
+                                @Html.TextBoxFor(m => m.CustomerModel.Address.ZipCode_Shipping, "Zipcode",
+new
+{
+@class = "stext-111 cl8 plh3 size-111 p-lr-15",
+@style = "width: 100%",
+@type = "text",
+@name = "zipcode",
+@id = "zipcode",
+@placeholder = "Zipcode"
+})
+                            </div>
+
+                            <div class="rs1-select2 rs2-select2 bor8 bg0 m-b-12 m-t-9">
+                                @Html.DropDownListFor(m => m.CustomerModel.Address.Country_Shipping,
+new List<SelectListItem>
+{
+new SelectListItem{ Text="USA", Value = "USA" },
+new SelectListItem{ Text="UK", Value = "UK" },
+new SelectListItem{ Text="Europe", Value = "Europe" },
+new SelectListItem{ Text="Australia", Value = "Australia" }
+},
+new
+{
+@class = "js-select2",
+@name = "time"
+})
+                                @*<select class="js-select2" name="time">
+                            <option>Select a country...</option>
+                            <option>USA</option>
+                            <option>UK</option>
+                        </select>*@
+                                <div class="dropDownSelect2"></div>
+                            </div>
+                           
                         </div>
                     </div>
 

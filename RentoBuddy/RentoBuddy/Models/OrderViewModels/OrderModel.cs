@@ -30,5 +30,9 @@ namespace RentoBuddy.Models.CartViewModels
         public string DiscountCode { get; set; }
 
         public double DiscountApplied { get; set; }
+		
+		public DateTime RentStartDate { get; set; }
+		
+		public DateTime RentEndDate { get; set; }
     }
 }

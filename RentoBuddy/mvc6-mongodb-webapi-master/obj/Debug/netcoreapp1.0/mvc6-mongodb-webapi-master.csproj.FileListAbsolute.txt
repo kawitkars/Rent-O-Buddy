@@ -1,0 +1,10 @@
+C:\Web Tools\Final Project_WebTools\Mongo_Latest\mvc6-mongodb-webapi-master\bin\Debug\netcoreapp1.0\mvc6-mongodb-webapi-master.deps.json
+C:\Web Tools\Final Project_WebTools\Mongo_Latest\mvc6-mongodb-webapi-master\bin\Debug\netcoreapp1.0\mvc6-mongodb-webapi-master.runtimeconfig.json
+C:\Web Tools\Final Project_WebTools\Mongo_Latest\mvc6-mongodb-webapi-master\bin\Debug\netcoreapp1.0\mvc6-mongodb-webapi-master.runtimeconfig.dev.json
+C:\Web Tools\Final Project_WebTools\Mongo_Latest\mvc6-mongodb-webapi-master\bin\Debug\netcoreapp1.0\mvc6-mongodb-webapi-master.dll
+C:\Web Tools\Final Project_WebTools\Mongo_Latest\mvc6-mongodb-webapi-master\bin\Debug\netcoreapp1.0\mvc6-mongodb-webapi-master.pdb
+C:\Web Tools\Final Project_WebTools\Mongo_Latest\mvc6-mongodb-webapi-master\obj\Debug\netcoreapp1.0\mvc6-mongodb-webapi-master.csproj.CoreCompileInputs.cache
+C:\Web Tools\Final Project_WebTools\Mongo_Latest\mvc6-mongodb-webapi-master\obj\Debug\netcoreapp1.0\mvc6-mongodb-webapi-master.AssemblyInfoInputs.cache
+C:\Web Tools\Final Project_WebTools\Mongo_Latest\mvc6-mongodb-webapi-master\obj\Debug\netcoreapp1.0\mvc6-mongodb-webapi-master.AssemblyInfo.cs
+C:\Web Tools\Final Project_WebTools\Mongo_Latest\mvc6-mongodb-webapi-master\obj\Debug\netcoreapp1.0\mvc6-mongodb-webapi-master.dll
+C:\Web Tools\Final Project_WebTools\Mongo_Latest\mvc6-mongodb-webapi-master\obj\Debug\netcoreapp1.0\mvc6-mongodb-webapi-master.pdb

@@ -144,56 +144,55 @@ new { @id = "addToCart", @class = "bg0 p-t-75 p-b-85" }))
                         </tr>
 
                         @for (var i = 0; i < Model.ProductsInCart.Count; i++)
-                        {
-                            @Html.HiddenFor(m => m.ProductsInCart[i].RentalDurationInMonths)
-                    <tr class="table_row">
-                        <td class="column-1">
-                            <div class="how-itemcart1">
-                                <img src=@Model.ProductsInCart[i].ProductData[0].ProductImageLink alt="IMG">
+            {
+                @Html.HiddenFor(m => m.ProductsInCart[i].RentalDurationInMonths)
+                <tr class="table_row">
+                    <td class="column-1">
+                        <div class="how-itemcart1">
+                            <img src=@Model.ProductsInCart[i].ProductData[0].ProductImageLink alt="IMG">
+                        </div>
+                    </td>
+                    <td class="column-2">@Model.ProductsInCart[i].ProductData[0].ProductName (Duration: @Model.ProductsInCart[i].RentalDurationInMonths months)</td>
+                    <td class="column-3" id="rentPerMonth">@(Model.ProductsInCart[i].ProductData[0].RentPerMonth)</td>
+                    <td class="column-4">
+                        <div class="wrap-num-product flex-w m-l-auto m-r-0">
+                            <div class="btn-num-product-down cl8 hov-btn3 trans-04 flex-c-m"
+                                 onclick="onQtyChangedDown();">
+                                <i class="fs-16 zmdi zmdi-minus"></i>
                             </div>
-                        </td>
-                        <td class="column-2">@Model.ProductsInCart[i].ProductData[0].ProductName (Duration: @Model.ProductsInCart[i].RentalDurationInMonths months)</td>
-                        <td class="column-3" id="rentPerMonth">@(Model.ProductsInCart[i].ProductData[0].RentPerMonth)</td>
-                        <td class="column-4">
-                            <div class="wrap-num-product flex-w m-l-auto m-r-0">
-                                <div class="btn-num-product-down cl8 hov-btn3 trans-04 flex-c-m" 
-                                     onclick="onQtyChangedDown();">
-                                    <i class="fs-16 zmdi zmdi-minus"></i>
-                                </div>
 
-                                @Html.EditorFor(m => m.ProductsInCart[i].Quantity,
+                            @Html.EditorFor(m => m.ProductsInCart[i].Quantity,
 
 new
 {
-    htmlAttributes = new
-    {
-        @type = "number",
-        //@value = @Model.ProductsInCart[i].Quantity,
-        @class = "mtext-104 cl3 txt-center num-product",
-        @name = "num-product1",
-        @id = "num-product1"
-    }
+htmlAttributes = new
+{
+@type = "number",
+    //@value = @Model.ProductsInCart[i].Quantity,
+    @class = "mtext-104 cl3 txt-center num-product",
+@name = "num-product1",
+@id = "num-product1"
+}
 })
 
-                                @*<input class="mtext-104 cl3 txt-center num-product" type="number" name="num-product1"
-                value=@cartProduct.Quantity>*@
+                            @*<input class="mtext-104 cl3 txt-center num-product" type="number" name="num-product1"
+                    value=@cartProduct.Quantity>*@
 
-                                <div name="btn-num-up" id="btn-num-up" 
-                                     class="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m"
-                                     onclick="onQtyChangedUp();">
-                                    <i class="fs-16 zmdi zmdi-plus"></i>
-                                </div>
+                            <div name="btn-num-up" id="btn-num-up"
+                                 class="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m"
+                                 onclick="onQtyChangedUp();">
+                                <i class="fs-16 zmdi zmdi-plus"></i>
                             </div>
-                        </td>
-                        <td class="column-5" id="perProductTotal">@(Model.ProductsInCart[i].ProductData[0].RentPerMonth * Model.ProductsInCart[i].RentalDurationInMonths * Model.ProductsInCart[i].Quantity)</td>
-                    </tr>
+                        </div>
+                    </td>
+                    <td class="column-5" id="perProductTotal" class="perProductTotal">@(Model.ProductsInCart[i].ProductData[0].RentPerMonth * Model.ProductsInCart[i].RentalDurationInMonths * Model.ProductsInCart[i].Quantity)</td>
+                </tr>
 
 }
-
-
                     </table>
                 </div>
 
+               
                 <div class="flex-w flex-sb-m bor15 p-t-18 p-b-15 p-lr-40 p-lr-15-sm">
                     <div class="flex-w flex-m m-r-20 m-tb-5">
                         <input class="stext-104 cl2 plh4 size-117 bor13 p-lr-20 m-r-10 m-tb-5" type="text" name="coupon" placeholder="Coupon Code">
@@ -548,9 +547,11 @@ new
                 </div>
 
                 <div class="size-209 p-t-1">
-                    <span class="mtext-110 cl2" name="sub-total" id="sub-total">
-                        
-                    </span>
+                    @*<span class="mtext-110 cl2" name="sub-total" id="sub-total">
+
+        </span>*@
+                    @Html.EditorFor(m => cartProduct.TotalCostForProduct,
+        new { @class = "mtext-110 cl2", name = "rental-deposit", id = "rental-deposit" });
                 </div>
             </div>
 
@@ -562,9 +563,11 @@ new
                 </div>
 
                 <div class="size-209 p-t-1">
-                    <span class="mtext-110 cl2" name="rental-deposit" id="rental-deposit">
+                    @*<span class="mtext-110 cl2" name="rental-deposit" id="rental-deposit">
                         $79
-                    </span>
+                    </span>*@
+                    @Html.EditorFor(m => cartProduct.RentalDeposit, 
+                   new { @class= "mtext-110 cl2", name="rental-deposit", id= "rental-deposit" });
                 </div>
             </div>
 
@@ -576,9 +579,11 @@ new
                 </div>
 
                 <div class="size-209 p-t-1">
-                    <span class="mtext-110 cl2" name="taxes-applied" id="taxes-applied">
-                        $79.65
-                    </span>
+                    @*<span class="mtext-110 cl2" name="taxes-applied" id="taxes-applied">
+            $79.65
+        </span>*@
+                    @Html.EditorFor(m => cartProduct.RentalDeposit,
+        new { @class = "mtext-110 cl2", name = "rental-deposit", id = "rental-deposit" });
                 </div>
             </div>
 

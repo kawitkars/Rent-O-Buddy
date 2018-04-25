@@ -34,5 +34,7 @@ namespace RentoBuddy.Models.CartViewModels
 		public DateTime RentStartDate { get; set; }
 		
 		public DateTime RentEndDate { get; set; }
+
+        public string OrderReceiptNumber { get; set; }
     }
 }

@@ -128,11 +128,41 @@ var readyInterval = setInterval(function () {
 //    $('#perProductTotal').val(tot);
 //});
 
-function onQtyChanged() {
+function onQtyChangedUp() {
 
-    var a = document.getElementById('num-product1');
-    var b = document.getElementById('rentPerProduct');
-    var c = a.value * b.innerHTML;
+    var a = document.getElementById('num-product1').value;
+    a = parseInt(a) + 1;
+    alert(a);
+    var b = document.getElementById('rentPerMonth').innerHTML;
+    alert(b);
+    var d = document.getElementById('ProductsInCart_0__RentalDurationInMonths').value;
+    alert(d);
+
+    var c = d * a * b;
     document.getElementById('perProductTotal').innerHTML = c;
 
+    //alert(c);
+
+    //document.getElementById('sub-total').innerHTML = 
+
 }
+
+function onQtyChangedDown() {
+
+    var a = document.getElementById('num-product1').value;
+    a = parseInt(a) - 1;
+    alert(a);
+    var b = document.getElementById('rentPerMonth').innerHTML;
+    alert(b);
+    var d = document.getElementById('ProductsInCart_0__RentalDurationInMonths').value;
+    alert(d);
+
+    var c = d * a * b;
+    document.getElementById('perProductTotal').innerHTML = c;
+
+    //alert(c);
+
+    //document.getElementById('sub-total').innerHTML = 
+
+}
+

@@ -138,25 +138,26 @@ new { @id = "addToCart", @class = "bg0 p-t-75 p-b-85" }))
                         <tr class="table_head">
                             <th class="column-1">Product</th>
                             <th class="column-2"></th>
-                            <th class="column-3">Price</th>
+                            <th class="column-3">Rent/Month(in dollars)</th>
                             <th class="column-4">Quantity</th>
                             <th class="column-5">Total</th>
                         </tr>
 
                         @for (var i = 0; i < Model.ProductsInCart.Count; i++)
                         {
+                            @Html.HiddenFor(m => m.ProductsInCart[i].RentalDurationInMonths)
                     <tr class="table_row">
                         <td class="column-1">
                             <div class="how-itemcart1">
-                                <img src="images/item-cart-04.jpg" alt="IMG">
+                                <img src=@Model.ProductsInCart[i].ProductData[0].ProductImageLink alt="IMG">
                             </div>
                         </td>
-                        <td class="column-2">@Model.ProductsInCart[i].ProductData[0].ProductName</td>
-                        <td class="column-3" id="rentPerProduct">@(Model.ProductsInCart[i].ProductData[0].RentPerMonth *
-                                            Model.ProductsInCart[i].RentalDurationInMonths)</td>
+                        <td class="column-2">@Model.ProductsInCart[i].ProductData[0].ProductName (Duration: @Model.ProductsInCart[i].RentalDurationInMonths months)</td>
+                        <td class="column-3" id="rentPerMonth">@(Model.ProductsInCart[i].ProductData[0].RentPerMonth)</td>
                         <td class="column-4">
                             <div class="wrap-num-product flex-w m-l-auto m-r-0">
-                                <div class="btn-num-product-down cl8 hov-btn3 trans-04 flex-c-m">
+                                <div class="btn-num-product-down cl8 hov-btn3 trans-04 flex-c-m" 
+                                     onclick="onQtyChangedDown();">
                                     <i class="fs-16 zmdi zmdi-minus"></i>
                                 </div>
 
@@ -179,40 +180,17 @@ new
 
                                 <div name="btn-num-up" id="btn-num-up" 
                                      class="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m"
-                                     onclick="onQtyChanged();">
+                                     onclick="onQtyChangedUp();">
                                     <i class="fs-16 zmdi zmdi-plus"></i>
                                 </div>
                             </div>
                         </td>
-                        <td class="column-5" id="perProductTotal">$@(Model.ProductsInCart[i].ProductData[0].RentPerMonth * Model.ProductsInCart[i].RentalDurationInMonths * Model.ProductsInCart[i].Quantity);</td>
+                        <td class="column-5" id="perProductTotal">@(Model.ProductsInCart[i].ProductData[0].RentPerMonth * Model.ProductsInCart[i].RentalDurationInMonths * Model.ProductsInCart[i].Quantity)</td>
                     </tr>
 
 }
 
 
-                        <tr class="table_row">
-                            <td class="column-1">
-                                <div class="how-itemcart1">
-                                    <img src="images/item-cart-05.jpg" alt="IMG">
-                                </div>
-                            </td>
-                            <td class="column-2">Lightweight Jacket</td>
-                            <td class="column-3">$ 16.00</td>
-                            <td class="column-4">
-                                <div class="wrap-num-product flex-w m-l-auto m-r-0">
-                                    <div class="btn-num-product-down cl8 hov-btn3 trans-04 flex-c-m">
-                                        <i class="fs-16 zmdi zmdi-minus"></i>
-                                    </div>
-
-                                    <input class="mtext-104 cl3 txt-center num-product" type="number" name="num-product2" value="1">
-
-                                    <div class="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m">
-                                        <i class="fs-16 zmdi zmdi-plus"></i>
-                                    </div>
-                                </div>
-                            </td>
-                            <td class="column-5">$ 16.00</td>
-                        </tr>
                     </table>
                 </div>
 
@@ -552,71 +530,91 @@ new
                         </select>*@
                                 <div class="dropDownSelect2"></div>
                             </div>
-                           
+
                         </div>
                     </div>
 
                 </div>
 
-                <div class="flex-w flex-t p-t-27 p-b-33">
-                    <div class="size-208">
-                        <span class="mtext-101 cl2">
-                            Sub Total:
-                        </span>
-                    </div>
-
-                    <div class="size-209 p-t-1">
-                        <span class="mtext-110 cl2">
-                            $79.65
-                        </span>
-                    </div>
+                @if (Model != null && Model.ProductsInCart != null && Model.ProductsInCart.Count > 0)
+    {
+            @foreach (var cartProduct in Model.ProductsInCart)
+{
+            <div class="flex-w flex-t p-t-27 p-b-33">
+                <div class="size-208">
+                    <span class="mtext-101 cl2">
+                        Sub Total:
+                    </span>
                 </div>
 
-                <div class="flex-w flex-t p-t-27 p-b-33">
-                    <div class="size-208">
-                        <span class="mtext-101 cl2">
-                            Tax Applied:
-                        </span>
-                    </div>
+                <div class="size-209 p-t-1">
+                    <span class="mtext-110 cl2" name="sub-total" id="sub-total">
+                        
+                    </span>
+                </div>
+            </div>
 
-                    <div class="size-209 p-t-1">
-                        <span class="mtext-110 cl2">
-                            $79.65
-                        </span>
-                    </div>
+            <div class="flex-w flex-t p-t-27 p-b-33">
+                <div class="size-208">
+                    <span class="mtext-101 cl2">
+                        Rental Deposit
+                    </span>
                 </div>
 
-                <div class="flex-w flex-t p-t-27 p-b-33">
-                    <div class="size-208">
-                        <span class="mtext-101 cl2">
-                            Discount Applied:
-                        </span>
-                    </div>
+                <div class="size-209 p-t-1">
+                    <span class="mtext-110 cl2" name="rental-deposit" id="rental-deposit">
+                        $79
+                    </span>
+                </div>
+            </div>
 
-                    <div class="size-209 p-t-1">
-                        <span class="mtext-110 cl2">
-                            $79.65
-                        </span>
-                    </div>
+            <div class="flex-w flex-t p-t-27 p-b-33">
+                <div class="size-208">
+                    <span class="mtext-101 cl2">
+                        Tax Applied:
+                    </span>
                 </div>
 
-                <div class="flex-w flex-t p-t-27 p-b-33">
-                    <div class="size-208">
-                        <span class="mtext-101 cl2">
-                            Total:
-                        </span>
-                    </div>
+                <div class="size-209 p-t-1">
+                    <span class="mtext-110 cl2" name="taxes-applied" id="taxes-applied">
+                        $79.65
+                    </span>
+                </div>
+            </div>
 
-                    <div class="size-209 p-t-1">
-                        <span class="mtext-110 cl2">
-                            $79.65
-                        </span>
-                    </div>
+            <div class="flex-w flex-t p-t-27 p-b-33">
+                <div class="size-208">
+                    <span class="mtext-101 cl2">
+                        Discount Applied:
+                    </span>
                 </div>
 
-                <button class="col-sm-4 col-sm-offset-3 stext-101 cl0 size-101 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer">
-                    Proceed to Checkout
-                </button>
+                <div class="size-209 p-t-1">
+                    <span class="mtext-110 cl2" name="discount-applied" id="discount-applied">
+                        $79.65
+                    </span>
+                </div>
+            </div>
+
+            <div class="flex-w flex-t p-t-27 p-b-33">
+                <div class="size-208">
+                    <span class="mtext-101 cl2">
+                        Total:
+                    </span>
+                </div>
+
+                <div class="size-209 p-t-1">
+                    <span class="mtext-110 cl2" name="total" id="total">
+                        $79.65
+                    </span>
+                </div>
+            </div>
+
+            <button class="col-sm-4 col-sm-offset-3 stext-101 cl0 size-101 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer">
+                Proceed to Checkout
+            </button>
+}
+}
             </div>
         </div>
     </div>

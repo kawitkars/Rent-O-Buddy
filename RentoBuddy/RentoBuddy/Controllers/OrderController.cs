@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using RentoBuddy.HelperMethods;
 using RentoBuddy.Models.CartViewModels;
+using RentoBuddy.Models.ProductViewModels;
 
 namespace RentoBuddy.Controllers
 {
@@ -26,7 +27,12 @@ namespace RentoBuddy.Controllers
             orderModel.OrderProductModel = new List<Models.OrderViewModels.OrderProductModel>();
             orderModel.OrderProductModel = cartViewModel.ProductsInCart;
             orderModel.PaymentModel = new Models.PaymentViewModels.PaymentModel();
-            orderModel.TaxesApplied = 20.0;
+
+            //foreach(ProductModel product in cartViewModel.ProductsInCart)
+            //{
+            //    orderModel.TotalRentAmount = 
+            //}
+            //orderModel.TaxesApplied = 0.05 * cartViewModel.ProductsInCart[]
             orderModel.TotalCostForOrder = 400;
             orderModel.TotalRentalDeposit = 200;
             orderModel.TotalRentAmount = 300;

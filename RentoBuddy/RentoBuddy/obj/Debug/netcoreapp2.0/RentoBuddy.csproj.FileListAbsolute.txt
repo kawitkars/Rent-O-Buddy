@@ -22,3 +22,15 @@ D:\RentoBuddy\Web-Tools-RentOBuddy\RentoBuddy\RentoBuddy\obj\Debug\netcoreapp2.0
 D:\RentoBuddy\Web-Tools-RentOBuddy\RentoBuddy\RentoBuddy\obj\Debug\netcoreapp2.0\RentoBuddy.dll
 D:\RentoBuddy\Web-Tools-RentOBuddy\RentoBuddy\RentoBuddy\obj\Debug\netcoreapp2.0\RentoBuddy.pdb
 D:\RentoBuddy\Web-Tools-RentOBuddy\RentoBuddy\RentoBuddy\obj\Debug\netcoreapp2.0\RentoBuddy.csprojResolveAssemblyReference.cache
+C:\Users\Web_Tools_Final_Local\Latest_Code_without_Auth\RentoBuddy\RentoBuddy\bin\Debug\netcoreapp2.0\RentoBuddy.deps.json
+C:\Users\Web_Tools_Final_Local\Latest_Code_without_Auth\RentoBuddy\RentoBuddy\bin\Debug\netcoreapp2.0\RentoBuddy.runtimeconfig.json
+C:\Users\Web_Tools_Final_Local\Latest_Code_without_Auth\RentoBuddy\RentoBuddy\bin\Debug\netcoreapp2.0\RentoBuddy.runtimeconfig.dev.json
+C:\Users\Web_Tools_Final_Local\Latest_Code_without_Auth\RentoBuddy\RentoBuddy\bin\Debug\netcoreapp2.0\RentoBuddy.dll
+C:\Users\Web_Tools_Final_Local\Latest_Code_without_Auth\RentoBuddy\RentoBuddy\bin\Debug\netcoreapp2.0\RentoBuddy.pdb
+C:\Users\Web_Tools_Final_Local\Latest_Code_without_Auth\RentoBuddy\RentoBuddy\obj\Debug\netcoreapp2.0\RentoBuddy.csprojResolveAssemblyReference.cache
+C:\Users\Web_Tools_Final_Local\Latest_Code_without_Auth\RentoBuddy\RentoBuddy\obj\Debug\netcoreapp2.0\RentoBuddy.csproj.CoreCompileInputs.cache
+C:\Users\Web_Tools_Final_Local\Latest_Code_without_Auth\RentoBuddy\RentoBuddy\obj\Debug\netcoreapp2.0\UserSecretsAssemblyInfo.cs
+C:\Users\Web_Tools_Final_Local\Latest_Code_without_Auth\RentoBuddy\RentoBuddy\obj\Debug\netcoreapp2.0\RentoBuddy.AssemblyInfoInputs.cache
+C:\Users\Web_Tools_Final_Local\Latest_Code_without_Auth\RentoBuddy\RentoBuddy\obj\Debug\netcoreapp2.0\RentoBuddy.AssemblyInfo.cs
+C:\Users\Web_Tools_Final_Local\Latest_Code_without_Auth\RentoBuddy\RentoBuddy\obj\Debug\netcoreapp2.0\RentoBuddy.dll
+C:\Users\Web_Tools_Final_Local\Latest_Code_without_Auth\RentoBuddy\RentoBuddy\obj\Debug\netcoreapp2.0\RentoBuddy.pdb

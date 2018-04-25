@@ -7,6 +7,6 @@ namespace RentoBuddy.Models.ProductViewModels
 {
     public class ProductManager
     {
-
+        
     }
 }

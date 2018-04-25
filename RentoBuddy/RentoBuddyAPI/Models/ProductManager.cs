@@ -34,8 +34,57 @@ namespace RentoBuddyAPI.Models
                             ProductDetails="Sofa set for Living Room",
                             ProductName = "Sofa Set 1",
                             RentPerMonth = 50.0,
-                            ProductImageLink = @"\images\about-02.jpg"
-                }
+                            ProductImageLink = "https://images-na.ssl-images-amazon.com/images/I/31ymbew4cBL._AC_UL255_SR306,255_FMwebp_QL65_.jpg"
+                        },
+                        new ProductModel()
+                        {
+                            ProductId = productId++,
+                            ProductCategory = "Bedroom",
+                            Availability = 50,
+                            Manufacturer = "ABCD",
+                            IsInStock = true,
+                            ProductDetails="Specious bed for BedRoom",
+                            ProductName = "Bed 1",
+                            RentPerMonth = 150.0,
+                            ProductImageLink = "https://images-na.ssl-images-amazon.com/images/I/51THzBxfwhL.jpg"
+                        },
+                        new ProductModel()
+                        {
+                            ProductId = productId++,
+                            ProductCategory = "Dining",
+                            Availability = 10,
+                            Manufacturer = "ABCD",
+                            IsInStock = true,
+                            ProductDetails="Dining Table for Dining Room",
+                            ProductName = "Dining Table 1",
+                            RentPerMonth = 80.0,
+                            ProductImageLink = "https://images-na.ssl-images-amazon.com/images/I/419cDOzZygL._AC_US240_QL65_.jpg"
+                        },
+                        new ProductModel()
+                        {
+                            ProductId = productId++,
+                            ProductCategory = "Storage",
+                            Availability = 20,
+                            Manufacturer = "ABCD",
+                            IsInStock = true,
+                            ProductDetails="Cardboard shelf for Storage",
+                            ProductName = "Shelf 1",
+                            RentPerMonth = 25.0,
+                            ProductImageLink = "https://images-na.ssl-images-amazon.com/images/I/51qh-lzKHzL._AC_US240_QL65_.jpg"
+                        },
+                        new ProductModel()
+                        {
+                            ProductId = productId++,
+                            ProductCategory = "Study",
+                            Availability = 30,
+                            Manufacturer = "ABCD",
+                            IsInStock = true,
+                            ProductDetails="table for Study",
+                            ProductName = "Study table 1",
+                            RentPerMonth = 50.0,
+                            ProductImageLink = "https://images-na.ssl-images-amazon.com/images/I/41QeQIr6ftL._AC_US240_QL65_.jpg"
+                        }
+                        
                     };
                     WriteProductsList(_products);
                 }

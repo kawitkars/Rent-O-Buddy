@@ -1,6 +1,9 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using RentoBuddy.Models;
+using RentoBuddy.Models.ProductViewModels;
+using System;
 using System.Diagnostics;
+using System.Threading.Tasks;
 
 namespace RentoBuddy.Controllers
 {
@@ -10,7 +13,18 @@ namespace RentoBuddy.Controllers
         {
             return View();
         }
+        //public async Task OnGetAsync(string searchproduct)
+        //{
+        //    ProductModel model = new ProductModel();
+            
+        //    if (!String.IsNullOrEmpty(searchproduct))
+        //    {
+        //        model.ProductName.Contains(searchproduct);
+        //        Products product = model.Where(s => s.prContains(searchString));
+        //    }
 
+        //    products = await products.ToListAsync();
+        //}
         public IActionResult About()
         {
             ViewData["Message"] = "Your application description page.";

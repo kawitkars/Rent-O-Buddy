@@ -1,4 +1,6 @@
-﻿
+﻿@model RentoBuddy.Models.CartViewModels.OrderModel
+
+
 @{
     ViewData["Title"] = "Payment";
 }
@@ -33,12 +35,23 @@
                             <div class="form-group">
                                 <label for="cardNumber">Name on Card</label>
                                 <div class="input-group">
-                                    <input type="tel"
+                                    @*<input type="tel"
                                            class="form-control"
                                            name="cardNumber"
                                            placeholder="Enter Full Name"
                                            autocomplete="cc-number"
-                                           required autofocus />
+                                           required autofocus />*@
+                                    @Html.TextBoxFor(m => m.PaymentModel.NameOnCard, "Enter Full Name",
+new
+{
+@class = "form-control",
+@style = "width: 100%",
+@type = "tel",
+@name = "cardNumber",
+@autocomplete = "cc-number",
+@required ="required",
+@autofocus="autofocus"
+})
                                 </div>
                             </div>
                         </div>
@@ -48,12 +61,24 @@
                             <div class="form-group">
                                 <label for="cardNumber">Card Number</label>
                                 <div class="input-group">
-                                    <input type="tel"
+                                    @*<input type="tel"
                                            class="form-control"
                                            name="cardNumber"
                                            placeholder="Valid Card Number"
                                            autocomplete="cc-number"
-                                           required autofocus />
+                                           required autofocus />*@
+                                    @Html.TextBoxFor(m => m.PaymentModel.CardNumber, "Valid Card Number",
+new
+{
+@class = "form-control",
+@style = "width: 100%",
+@type = "tel",
+@name = "cardNumber",
+@autocomplete = "cc-number",
+@required = "required",
+@autofocus = "autofocus",
+@placeholder = "Valid Card Number"
+})
                                     <span class="input-group-addon"><i class="fa fa-credit-card"></i></span>
                                 </div>
                             </div>
@@ -66,23 +91,47 @@
                                     <span class="hidden-xs">Expiration Date</span>
                                     @*<span class="visible-xs-inline">EXP</span> DATE*@
                                 </label>
-                                <input type="tel"
-                                       class="form-control"
-                                       name="cardExpiry"
-                                       placeholder="MM / YY"
-                                       autocomplete="cc-exp"
-                                       required />
+                                @*<input type="tel"
+        class="form-control"
+        name="cardExpiry"
+        placeholder="MM / YY"
+        autocomplete="cc-exp"
+        required />*@
+                                @Html.TextBoxFor(m => m.PaymentModel.ExpirationDate, "MM / YY",
+new
+{
+@class = "form-control",
+@style = "width: 100%",
+@type = "tel",
+@name = "cardExpiry",
+@autocomplete = "cc-exp",
+@required = "required",
+@autofocus = "autofocus",
+@placeholder = "MM / YY"
+})
                             </div>
                         </div>
                         <div class="col-lg-3">
                             <div class="form-group">
                                 <label for="cardCVC">CVV Code</label>
-                                <input type="tel"
-                                       class="form-control"
-                                       name="cardCVC"
-                                       placeholder="CVV"
-                                       autocomplete="cc-csc"
-                                       required />
+                                @*<input type="tel"
+        class="form-control"
+        name="cardCVC"
+        placeholder="CVV"
+        autocomplete="cc-csc"
+        required />*@
+                                @Html.TextBoxFor(m => m.PaymentModel.CVVNumber, "CVV",
+new
+{
+@class = "form-control",
+@style = "width: 100%",
+@type = "tel",
+@name = "cardCVC",
+@autocomplete = "cc-csc",
+@required = "required",
+@autofocus = "autofocus",
+@placeholder = "CVV"
+})
                             </div>
                         </div>
                     </div>
@@ -99,11 +148,11 @@
                             <button class="btn btn-success btn-lg btn-block" type="submit">Make Payment</button>
                         </div>
                     </div>
-                    <div class="row" style="display:none;">
+                    @*<div class="row" style="display:none;">
                         <div class="">
                             <p class="payment-errors"></p>
                         </div>
-                    </div>
+                    </div>*@
                 }
                 </div>
             </div>

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using RentoBuddy.HelperMethods;
 using RentoBuddy.Models.CartViewModels;
@@ -13,6 +14,7 @@ namespace RentoBuddy.Controllers
         public static int orderId = 1;
 
         [HttpPost]
+        [Authorize]
         public IActionResult MakePayment(OrderModel orderModel)
         {
             CartViewModel cartViewModel = HttpContext.Session.GetObjectFromJson<CartViewModel>("CartViewModel");
@@ -35,6 +37,7 @@ namespace RentoBuddy.Controllers
         
 
         [HttpPost]
+        [Authorize]
         public IActionResult OrderReceipt(OrderModel orderModel)
         {
             //OrderModel orderModel = new OrderModel();

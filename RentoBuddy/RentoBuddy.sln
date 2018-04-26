@@ -7,8 +7,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RentoBuddy", "RentoBuddy\Re
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RentoBuddyAPI", "RentoBuddyAPI\RentoBuddyAPI.csproj", "{36D89761-8DB6-4794-A38D-98A37E88DCDB}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "mvc6-mongodb-webapi-master", "mvc6-mongodb-webapi-master\mvc6-mongodb-webapi-master.csproj", "{C2D968BD-1AE9-49A9-92F9-869257352048}"
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -23,10 +21,6 @@ Global
 		{36D89761-8DB6-4794-A38D-98A37E88DCDB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{36D89761-8DB6-4794-A38D-98A37E88DCDB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{36D89761-8DB6-4794-A38D-98A37E88DCDB}.Release|Any CPU.Build.0 = Release|Any CPU
-		{C2D968BD-1AE9-49A9-92F9-869257352048}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{C2D968BD-1AE9-49A9-92F9-869257352048}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{C2D968BD-1AE9-49A9-92F9-869257352048}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{C2D968BD-1AE9-49A9-92F9-869257352048}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

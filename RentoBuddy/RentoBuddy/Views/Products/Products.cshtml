@@ -9,29 +9,61 @@
     <div class="container">
         <div class="flex-w flex-sb-m p-b-52">
             <div class="flex-w flex-l-m filter-tope-group m-tb-10">
-                <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5 how-active1" data-filter="*">
+                @*<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5 how-active1" data-filter="*">
+           All Products
+        </button>*@
+
+                <a asp-area="" asp-controller="Products" asp-action="GetAllProducts" class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5 how-active1" data-filter="*">
                     All Products
-                </button>
+                </a>
 
-                <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".women">
-                    Living
-                </button>
+                @*<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".women">
+            Living
+        </button>*@
 
-                <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".men">
-                    Bedroom
-                </button>
+                @using (Html.BeginForm("SearchProductsByCategory", "Products", FormMethod.Get))
+                {
 
-                <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".bag">
+            <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" name="category" value="Living">
+                Living
+            </button>
+
+                }
+
+                @using (Html.BeginForm("SearchProductsByCategory", "Products", FormMethod.Get))
+                {
+
+            <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" name="category" value="Bedroom">
+                Bedroom
+            </button>
+                }
+
+                @using (Html.BeginForm("SearchProductsByCategory", "Products", FormMethod.Get))
+                {
+
+            <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" name="category" value="Dining">
+                Dining
+            </button>
+                }
+
+                @*<button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".bag">
                     Dining
-                </button>
+                </button>*@
 
-                <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".shoes">
+                 @using (Html.BeginForm("SearchProductsByCategory", "Products", FormMethod.Get))
+                 {
+
+                <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" name="category" value="Storage">
                     Storage
                 </button>
+                 }
 
-                <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" data-filter=".watches">
+                @using (Html.BeginForm("SearchProductsByCategory", "Products", FormMethod.Get))
+                 {
+                <button class="stext-106 cl6 hov1 bor3 trans-04 m-r-32 m-tb-5" name="category" value="Study">
                     Study
                 </button>
+                }
             </div>
 
             <div class="flex-w flex-c-m m-tb-10">
@@ -51,7 +83,7 @@
             <!-- Search product -->
             <div class="dis-none panel-search w-full p-t-10 p-b-15">
                 <div class="bor8 dis-flex p-l-15">
-                    @using (Html.BeginForm("GetSearchedProducts", "Products", FormMethod.Post))
+                    @using (Html.BeginForm("GetSearchedProducts", "Products", FormMethod.Get))
                      {
 
                         @*<input type="text" name="Search" placeholder="Enter Product ID">*@

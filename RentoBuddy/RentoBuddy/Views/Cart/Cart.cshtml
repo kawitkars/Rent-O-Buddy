@@ -204,8 +204,9 @@ new
 
                             subtotal = subtotal + (product.ProductData[0].RentPerMonth
                                             * product.Quantity * product.RentalDurationInMonths);
-                        <th class="column-5" id="subtotalCart" name ="subtotalCart">@subtotal</th>
                         }
+                        <th class="column-5" id="subtotalCart" name ="subtotalCart">@subtotal</th>
+                        
                             }
 
                     </tr>
@@ -218,17 +219,15 @@ new
 
                         @{
                             var totalRentalAmt4 = 0.0;
-                            var rentalAmt = 0.0;
                             var totalRentalDeposit = 0.0;
                         @foreach (var product in Model.ProductsInCart)
                         {
-                            rentalAmt = rentalAmt + (product.ProductData[0].RentPerMonth
-                            * product.Quantity * product.RentalDurationInMonths);
-
-                            totalRentalAmt4 = totalRentalAmt4 + rentalAmt;
+                            totalRentalAmt4 = totalRentalAmt4 + (product.ProductData[0].RentPerMonth
+                                    * product.Quantity * product.RentalDurationInMonths);
                             totalRentalDeposit = 0.10 * totalRentalAmt4;
-                        <th class="column-5" id="rentalDepositCart" name ="rentalDepositCart">@totalRentalDeposit</th>
                         }
+                        <th class="column-5" id="rentalDepositCart" name ="rentalDepositCart">@totalRentalDeposit</th>
+                        
                         }
                     </tr>
 
@@ -242,8 +241,9 @@ new
                         {
 
                             discountApplied = discountApplied + product.RentAmount;
-                    <th class="column-5" id="discountCart" name ="discountCart">@discountApplied</th>
                         }
+                    <th class="column-5" id="discountCart" name ="discountCart">@discountApplied</th>
+                        
                             }
                     </tr>
 
@@ -254,17 +254,16 @@ new
                         <th class="column-4">Taxes Applied</th>
                         @{ var taxesApplied = 0.0;
                             var totalRentalAmt = 0.0;
-                            var rentalAmt1 = 0.0;
 
                         @foreach (var product in Model.ProductsInCart)
                         {
 
-                            rentalAmt1 = rentalAmt1 + (product.ProductData[0].RentPerMonth
-                                                            * product.Quantity * product.RentalDurationInMonths);
-                            totalRentalAmt = totalRentalAmt + rentalAmt1;
+                            totalRentalAmt = totalRentalAmt + (product.ProductData[0].RentPerMonth
+                                                                    * product.Quantity * product.RentalDurationInMonths);
                             taxesApplied = 0.05 * totalRentalAmt;
-                    <th class="column-5" id="taxesAppliedCart" name ="taxesAppliedCart">@taxesApplied</th>
                         }
+                    <th class="column-5" id="taxesAppliedCart" name ="taxesAppliedCart">@taxesApplied</th>
+                        
                             }
                     </tr>
 
@@ -284,16 +283,14 @@ new
                         @foreach (var product in Model.ProductsInCart)
                         {
 
-                            rentalAmt2 = rentalAmt2 + (product.ProductData[0].RentPerMonth
-                                                            * product.Quantity * product.RentalDurationInMonths);
-                            discountApplied2 = discountApplied2 + product.RentAmount;
-                            
-                            totalRentalAmt2 = totalRentalAmt2 + rentalAmt2;
+                            totalRentalAmt2 = totalRentalAmt2 + (product.ProductData[0].RentPerMonth
+                                                                    * product.Quantity * product.RentalDurationInMonths);
                             taxesApplied2 = 0.05 * totalRentalAmt2;
                             totalRentalDep2 = 0.10 * totalRentalAmt2;
-                            total = taxesApplied2 + totalRentalAmt2 + totalRentalDep2 - discountApplied2;
-                    <th class="column-5" id="Total" name="Total">@total</th>
+                            total = (taxesApplied2 + totalRentalAmt2 + totalRentalDep2) - discountApplied2;
                         }
+                    <th class="column-5" id="Total" name="Total">@total</th>
+                        
                             }
                     </tr>
                     </table>

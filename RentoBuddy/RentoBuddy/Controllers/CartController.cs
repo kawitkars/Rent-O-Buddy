@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -61,6 +62,12 @@ namespace RentoBuddy.Controllers
                     cartViewModel.CouponCodeApplied = cartViewModelOld.CouponCodeApplied;
                     cartViewModel.CustomerModel = cartViewModelOld.CustomerModel;
                     cartViewModel.ProductsInCart = cartViewModelOld.ProductsInCart;
+
+                    //foreach(OrderProductModel orderPrdModel in cartViewModelOld.ProductsInCart)
+                    //{
+                        
+                    //}
+
                     cartViewModel.ProductsInCart.Add(orderProductModel);
                 }
                 else

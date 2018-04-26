@@ -127,7 +127,7 @@ ViewData["Title"] = "Cart";
 
 <!-- Shoping Cart -->
 @using (Html.BeginForm("MakePayment", "Order", FormMethod.Post,
-new { @id = "addToCart", @name="addToCart", @class = "bg0 p-t-75 p-b-85" , ng_app= "ngApp" }))
+new { @id = "addToCart", @name = "addToCart", @class = "bg0 p-t-75 p-b-85", ng_app = "ngApp" }))
 {
 @Html.AntiForgeryToken()
 @Html.ValidationSummary()
@@ -146,51 +146,156 @@ new { @id = "addToCart", @name="addToCart", @class = "bg0 p-t-75 p-b-85" , ng_ap
                         </tr>
 
                         @for (var i = 0; i < Model.ProductsInCart.Count; i++)
-            {
-                @Html.HiddenFor(m => m.ProductsInCart[i].RentalDurationInMonths)
-                <tr class="table_row">
-                    <td class="column-1">
-                        <div class="how-itemcart1">
-                            <img src=@Model.ProductsInCart[i].ProductData[0].ProductImageLink alt="IMG">
-                        </div>
-                    </td>
-                    <td class="column-2">@Model.ProductsInCart[i].ProductData[0].ProductName (Duration: @Model.ProductsInCart[i].RentalDurationInMonths months)</td>
-                    <td class="column-3" id="rentPerMonth">@(Model.ProductsInCart[i].ProductData[0].RentPerMonth)</td>
-                    <td class="column-4">
-                        <div class="wrap-num-product flex-w m-l-auto m-r-0">
-                            <div class="btn-num-product-down cl8 hov-btn3 trans-04 flex-c-m"
-                                 onclick="onQtyChangedDown();">
-                                <i class="fs-16 zmdi zmdi-minus"></i>
+                        {
+                    @Html.HiddenFor(m => m.ProductsInCart[i].RentalDurationInMonths)
+                    <tr class="table_row">
+                        <td class="column-1">
+                            <div class="how-itemcart1">
+                                <img src=@Model.ProductsInCart[i].ProductData[0].ProductImageLink alt="IMG">
                             </div>
+                        </td>
+                        <td class="column-2">@Model.ProductsInCart[i].ProductData[0].ProductName (Duration: @Model.ProductsInCart[i].RentalDurationInMonths months)</td>
+                        <td class="column-3" id="rentPerMonth">@(Model.ProductsInCart[i].ProductData[0].RentPerMonth)</td>
+                        <td class="column-4">
+                            <div class="wrap-num-product flex-w m-l-auto m-r-0">
+                                <div class="btn-num-product-down cl8 hov-btn3 trans-04 flex-c-m"
+                                     onclick="onQtyChangedDown();">
+                                    <i class="fs-16 zmdi zmdi-minus"></i>
+                                </div>
 
-                            @Html.EditorFor(m => m.ProductsInCart[i].Quantity,
+                                @Html.EditorFor(m => m.ProductsInCart[i].Quantity,
 
 new
 {
-htmlAttributes = new
-{
-@type = "number",
-    //@value = @Model.ProductsInCart[i].Quantity,
-    @class = "mtext-104 cl3 txt-center num-product",
-@name = "num-product1",
-@id = "num-product1"
-}
+    htmlAttributes = new
+    {
+        @type = "number",
+        //@value = @Model.ProductsInCart[i].Quantity,
+        @class = "mtext-104 cl3 txt-center num-product",
+        @name = "num-product1",
+        @id = "num-product1"
+    }
 })
 
-                            @*<input class="mtext-104 cl3 txt-center num-product" type="number" name="num-product1"
-                    value=@cartProduct.Quantity>*@
+                                @*<input class="mtext-104 cl3 txt-center num-product" type="number" name="num-product1"
+                value=@cartProduct.Quantity>*@
 
-                            <div name="btn-num-up" id="btn-num-up"
-                                 class="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m"
-                                 onclick="onQtyChangedUp();">
-                                <i class="fs-16 zmdi zmdi-plus"></i>
+                                <div name="btn-num-up" id="btn-num-up"
+                                     class="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m"
+                                     onclick="onQtyChangedUp();">
+                                    <i class="fs-16 zmdi zmdi-plus"></i>
+                                </div>
                             </div>
-                        </div>
-                    </td>
-                    <td class="column-5" id="perProductTotal" class="perProductTotal">@(Model.ProductsInCart[i].ProductData[0].RentPerMonth * Model.ProductsInCart[i].RentalDurationInMonths * Model.ProductsInCart[i].Quantity)</td>
-                </tr>
+                        </td>
+                        <td class="column-5" id="perProductTotal" class="prodTotalClass">@(Model.ProductsInCart[i].ProductData[0].RentPerMonth * Model.ProductsInCart[i].RentalDurationInMonths * Model.ProductsInCart[i].Quantity)</td>
+                    </tr>
+
 
 }
+
+                    <tr class="table_head">
+                        <th class="column-1"></th>
+                        <th class="column-2"></th>
+                        <th class="column-3"></th>
+                        <th class="column-4">Sub Total</th>
+                        @{ var subtotal = 0.0;
+                        @foreach (var product in Model.ProductsInCart)
+                        {
+
+                            subtotal = subtotal + (product.ProductData[0].RentPerMonth
+                                            * product.Quantity * product.RentalDurationInMonths);
+                        <th class="column-5" id="subtotalCart" name ="subtotalCart">@subtotal</th>
+                        }
+                            }
+
+                    </tr>
+
+                    <tr class="table_head">
+                        <th class="column-1"></th>
+                        <th class="column-2"></th>
+                        <th class="column-3"></th>
+                        <th class="column-4">Rental Deposit</th>
+
+                        @{
+                            var totalRentalAmt4 = 0.0;
+                            var rentalAmt = 0.0;
+                            var totalRentalDeposit = 0.0;
+                        @foreach (var product in Model.ProductsInCart)
+                        {
+                            rentalAmt = rentalAmt + (product.ProductData[0].RentPerMonth
+                            * product.Quantity * product.RentalDurationInMonths);
+
+                            totalRentalAmt4 = totalRentalAmt4 + rentalAmt;
+                            totalRentalDeposit = 0.10 * totalRentalAmt4;
+                        <th class="column-5" id="rentalDepositCart" name ="rentalDepositCart">@totalRentalDeposit</th>
+                        }
+                        }
+                    </tr>
+
+                    <tr class="table_head">
+                        <th class="column-1"></th>
+                        <th class="column-2"></th>
+                        <th class="column-3"></th>
+                        <th class="column-4">Discount Applied</th>
+                        @{var discountApplied = 0.0;
+                        @foreach (var product in Model.ProductsInCart)
+                        {
+
+                            discountApplied = discountApplied + product.RentAmount;
+                    <th class="column-5" id="discountCart" name ="discountCart">@discountApplied</th>
+                        }
+                            }
+                    </tr>
+
+                    <tr class="table_head">
+                        <th class="column-1"></th>
+                        <th class="column-2"></th>
+                        <th class="column-3"></th>
+                        <th class="column-4">Taxes Applied</th>
+                        @{ var taxesApplied = 0.0;
+                            var totalRentalAmt = 0.0;
+                            var rentalAmt1 = 0.0;
+
+                        @foreach (var product in Model.ProductsInCart)
+                        {
+
+                            rentalAmt1 = rentalAmt1 + (product.ProductData[0].RentPerMonth
+                                                            * product.Quantity * product.RentalDurationInMonths);
+                            totalRentalAmt = totalRentalAmt + rentalAmt1;
+                            taxesApplied = 0.05 * totalRentalAmt;
+                    <th class="column-5" id="taxesAppliedCart" name ="taxesAppliedCart">@taxesApplied</th>
+                        }
+                            }
+                    </tr>
+
+                    <tr class="table_head">
+                        <th class="column-1"></th>
+                        <th class="column-2"></th>
+                        <th class="column-3"></th>
+                        <th class="column-4">Total</th>
+                        @{ 
+                            var total = 0.0;
+                            var taxesApplied2 = 0.0;
+                            var totalRentalAmt2 = 0.0;
+                            var discountApplied2 = 0.0;
+                            var rentalDeposit2 = 0.0;
+                            var rentalAmt2 = 0.0;
+                            var totalRentalDep2 = 0.0;
+                        @foreach (var product in Model.ProductsInCart)
+                        {
+
+                            rentalAmt2 = rentalAmt2 + (product.ProductData[0].RentPerMonth
+                                                            * product.Quantity * product.RentalDurationInMonths);
+                            discountApplied2 = discountApplied2 + product.RentAmount;
+                            
+                            totalRentalAmt2 = totalRentalAmt2 + rentalAmt2;
+                            taxesApplied2 = 0.05 * totalRentalAmt2;
+                            totalRentalDep2 = 0.10 * totalRentalAmt2;
+                            total = taxesApplied2 + totalRentalAmt2 + totalRentalDep2 - discountApplied2;
+                    <th class="column-5" id="Total" name="Total">@total</th>
+                        }
+                            }
+                    </tr>
                     </table>
                 </div>
 
@@ -202,10 +307,6 @@ htmlAttributes = new
                         <div class="flex-c-m stext-101 cl2 size-118 bg8 bor13 hov-btn3 p-lr-15 trans-04 pointer m-tb-5">
                             Apply coupon
                         </div>
-                    </div>
-
-                    <div class="flex-c-m stext-101 cl2 size-119 bg8 bor13 hov-btn3 p-lr-15 trans-04 pointer m-tb-10">
-                        Update Cart
                     </div>
                 </div>
             </div>
@@ -237,15 +338,15 @@ htmlAttributes = new
                                 @Html.TextBoxFor(m => m.CustomerModel.FirstName, "First Name",
 new
 {
-    @class = "stext-111 cl8 plh3 size-111 p-lr-15",
-    @style = "width: 100%",
-    @type = "text",
-    @name = "firstname",
-    @id = "firstname",
-    @placeholder = "First Name",
-    @required = "",
-    ng_model = "sa.firstname",
-    ng_pattern = "/^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/"
+@class = "stext-111 cl8 plh3 size-111 p-lr-15",
+@style = "width: 100%",
+@type = "text",
+@name = "firstname",
+@id = "firstname",
+@placeholder = "First Name",
+@required = "",
+ng_model = "sa.firstname",
+ng_pattern = "/^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/"
 })
 
                             </div>
@@ -347,16 +448,16 @@ ng_pattern = "/^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/"
                                 @Html.TextBoxFor(m => m.CustomerModel.Address.AddressLine1_Billing, "Address Line 1",
 new
 {
-    @class = "stext-111 cl8 plh3 size-111 p-lr-15",
-    @style = "width: 100%",
-    @type = "text",
-    @name = "addressLine1",
-    @id = "addressLine1",
-    @placeholder = "Address Line 1",
-    @required = "",
-    ng_model = "sa.addressline1",
-    ng_pattern = "/^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/",
-    ng_change = "sameAddress && update()"
+@class = "stext-111 cl8 plh3 size-111 p-lr-15",
+@style = "width: 100%",
+@type = "text",
+@name = "addressLine1",
+@id = "addressLine1",
+@placeholder = "Address Line 1",
+@required = "",
+ng_model = "sa.addressline1",
+ng_pattern = "/^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/",
+ng_change = "sameAddress && update()"
 })
                             </div>
                             <span class="error" ng-show="addToCart.CustomerModel.Address.AddressLine1_Billing.$error.required">Email Address is Required!</span>
@@ -365,16 +466,16 @@ new
                                 @Html.TextBoxFor(m => m.CustomerModel.Address.AddressLine2_Billing, "Address Line 2",
 new
 {
-    @class = "stext-111 cl8 plh3 size-111 p-lr-15",
-    @style = "width: 100%",
-    @type = "text",
-    @name = "addressLine2",
-    @id = "addressLine2",
-    @placeholder = "Address Line 2",
-    @required = "",
-    ng_model = "sa.addressline2",
-    ng_pattern = "/^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/",
-    ng_change = "sameAddress && update()"
+@class = "stext-111 cl8 plh3 size-111 p-lr-15",
+@style = "width: 100%",
+@type = "text",
+@name = "addressLine2",
+@id = "addressLine2",
+@placeholder = "Address Line 2",
+@required = "",
+ng_model = "sa.addressline2",
+ng_pattern = "/^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/",
+ng_change = "sameAddress && update()"
 })
                             </div>
                             <span class="error" ng-show="addToCart.CustomerModel.Address.AddressLine2_Billing.$error.required">Email Address is Required!</span>
@@ -383,16 +484,16 @@ new
                                 @Html.TextBoxFor(m => m.CustomerModel.Address.City_Billing, "City",
 new
 {
-    @class = "stext-111 cl8 plh3 size-111 p-lr-15",
-    @style = "width: 100%",
-    @type = "text",
-    @name = "city",
-    @id = "city",
-    @placeholder = "City",
-    @required = "",
-    ng_model = "sa.city",
-    ng_pattern = "/^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/",
-    ng_change = "sameAddress && update()"
+@class = "stext-111 cl8 plh3 size-111 p-lr-15",
+@style = "width: 100%",
+@type = "text",
+@name = "city",
+@id = "city",
+@placeholder = "City",
+@required = "",
+ng_model = "sa.city",
+ng_pattern = "/^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/",
+ng_change = "sameAddress && update()"
 })
                             </div>
                             <span class="error" ng-show="addToCart.CustomerModel.Address.City_Billing.$error.required">Email Address is Required!</span>
@@ -401,16 +502,16 @@ new
                                 @Html.TextBoxFor(m => m.CustomerModel.Address.State_Billing, "State",
 new
 {
-    @class = "stext-111 cl8 plh3 size-111 p-lr-15",
-    @style = "width: 100%",
-    @type = "text",
-    @name = "state",
-    @id = "state",
-    @placeholder = "State",
-    @required = "",
-    ng_model = "sa.state",
-    ng_pattern = "/^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/",
-    ng_change = "sameAddress && update()"
+@class = "stext-111 cl8 plh3 size-111 p-lr-15",
+@style = "width: 100%",
+@type = "text",
+@name = "state",
+@id = "state",
+@placeholder = "State",
+@required = "",
+ng_model = "sa.state",
+ng_pattern = "/^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/",
+ng_change = "sameAddress && update()"
 })
                             </div>
                             <span class="error" ng-show="addToCart.CustomerModel.Address.State_Billing.$error.required">Email Address is Required!</span>
@@ -419,16 +520,16 @@ new
                                 @Html.TextBoxFor(m => m.CustomerModel.Address.ZipCode_Billing, "Zipcode",
 new
 {
-    @class = "stext-111 cl8 plh3 size-111 p-lr-15",
-    @style = "width: 100%",
-    @type = "text",
-    @name = "zipcode",
-    @id = "zipcode",
-    @placeholder = "Zipcode",
-    @required = "",
-    ng_model = "sa.zipcode",
-    ng_pattern = "/^\\d{5}(?:[-\\s]\\d{4})?$/",
-    ng_change = "sameAddress && update()"
+@class = "stext-111 cl8 plh3 size-111 p-lr-15",
+@style = "width: 100%",
+@type = "text",
+@name = "zipcode",
+@id = "zipcode",
+@placeholder = "Zipcode",
+@required = "",
+ng_model = "sa.zipcode",
+ng_pattern = "/^\\d{5}(?:[-\\s]\\d{4})?$/",
+ng_change = "sameAddress && update()"
 })
                             </div>
                             <span class="error" ng-show="addToCart.CustomerModel.Address.ZipCode_Billing.$error.required">Email Address is Required!</span>
@@ -448,10 +549,10 @@ new
 @name = "time"
 })
                                 @*<select class="js-select2" name="time">
-                <option>Select a country...</option>
-                <option>USA</option>
-                <option>UK</option>
-            </select>*@
+                            <option>Select a country...</option>
+                            <option>USA</option>
+                            <option>UK</option>
+                        </select>*@
                                 <div class="dropDownSelect2"></div>
                             </div>
 
@@ -591,11 +692,7 @@ new
 @class = "js-select2",
 @name = "time"
 })
-                                @*<select class="js-select2" name="time">
-                <option>Select a country...</option>
-                <option>USA</option>
-                <option>UK</option>
-            </select>*@
+
                                 <div class="dropDownSelect2"></div>
                             </div>
 
@@ -603,92 +700,13 @@ new
                     </div>
 
                 </div>
+               <br />
+           
 
-                @if (Model != null && Model.ProductsInCart != null && Model.ProductsInCart.Count > 0)
-    {
-            @foreach (var cartProduct in Model.ProductsInCart)
-{
-            <div class="flex-w flex-t p-t-27 p-b-33">
-                <div class="size-208">
-                    <span class="mtext-101 cl2">
-                        Sub Total:
-                    </span>
-                </div>
+                <button class="col-sm-4 col-sm-offset-3 stext-101 cl0 size-101 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer">
+                    Proceed to Checkout
+                </button>
 
-                <div class="size-209 p-t-1">
-                    @*<span class="mtext-110 cl2" name="sub-total" id="sub-total">
-
-        </span>*@
-                    @Html.EditorFor(m => cartProduct.TotalCostForProduct,
-        new { @class = "mtext-110 cl2", name = "rental-deposit", id = "rental-deposit" });
-                </div>
-            </div>
-
-            <div class="flex-w flex-t p-t-27 p-b-33">
-                <div class="size-208">
-                    <span class="mtext-101 cl2">
-                        Rental Deposit
-                    </span>
-                </div>
-
-                <div class="size-209 p-t-1">
-                    @*<span class="mtext-110 cl2" name="rental-deposit" id="rental-deposit">
-                        $79
-                    </span>*@
-                    @Html.EditorFor(m => cartProduct.RentalDeposit, 
-                   new { @class= "mtext-110 cl2", name="rental-deposit", id= "rental-deposit" });
-                </div>
-            </div>
-
-            <div class="flex-w flex-t p-t-27 p-b-33">
-                <div class="size-208">
-                    <span class="mtext-101 cl2">
-                        Tax Applied:
-                    </span>
-                </div>
-
-                <div class="size-209 p-t-1">
-                    @*<span class="mtext-110 cl2" name="taxes-applied" id="taxes-applied">
-            $79.65
-        </span>*@
-                    @Html.EditorFor(m => cartProduct.RentalDeposit,
-        new { @class = "mtext-110 cl2", name = "rental-deposit", id = "rental-deposit" });
-                </div>
-            </div>
-
-            <div class="flex-w flex-t p-t-27 p-b-33">
-                <div class="size-208">
-                    <span class="mtext-101 cl2">
-                        Discount Applied:
-                    </span>
-                </div>
-
-                <div class="size-209 p-t-1">
-                    <span class="mtext-110 cl2" name="discount-applied" id="discount-applied">
-                        $79.65
-                    </span>
-                </div>
-            </div>
-
-            <div class="flex-w flex-t p-t-27 p-b-33">
-                <div class="size-208">
-                    <span class="mtext-101 cl2">
-                        Total:
-                    </span>
-                </div>
-
-                <div class="size-209 p-t-1">
-                    <span class="mtext-110 cl2" name="total" id="total">
-                        $79.65
-                    </span>
-                </div>
-            </div>
-
-            <button class="col-sm-4 col-sm-offset-3 stext-101 cl0 size-101 bg3 bor14 hov-btn3 p-lr-15 trans-04 pointer">
-                Proceed to Checkout
-            </button>
-}
-}
             </div>
         </div>
     </div>

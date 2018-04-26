@@ -31,11 +31,12 @@ namespace RentoBuddy.Controllers
             foreach (OrderProductModel orderProductModel in orderModel.OrderProductModel)
             {
                 orderProductModel.RentAmount = orderProductModel.ProductData[0].RentPerMonth *
-                    orderProductModel.RentalDurationInMonths;
-                orderProductModel.RentalDeposit = 0.10 * orderProductModel.RentAmount;
+                    orderProductModel.RentalDurationInMonths * orderProductModel.Quantity;
                 orderModel.TotalRentAmount += orderProductModel.RentAmount;
-                orderModel.TotalRentalDeposit += orderProductModel.RentalDeposit;
+                
             }
+
+            orderModel.TotalRentalDeposit = 0.10 * orderModel.TotalRentAmount;
 
             if (orderModel.DiscountCode == "DISCOUNT10")
             {

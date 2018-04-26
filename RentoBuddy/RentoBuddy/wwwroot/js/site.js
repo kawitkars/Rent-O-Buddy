@@ -135,9 +135,59 @@ function onQtyChangedUp() {
     var b = document.getElementById('rentPerMonth').innerHTML;
     var d = document.getElementById('ProductsInCart_0__RentalDurationInMonths').value;
     //alert(d);
+    var total = 0.0;
+    var taxesApplied2 = 0.0;
+    var totalRentalAmt2 = 0.0;
+    var discountApplied2 = 0.0;
+    var rentalAmt2 = 0.0;
+    var totalRentalDep2 = 0.0;
+    var couponCode = 0.0;
 
     var c = d * a * b;
     document.getElementById('perProductTotal').innerHTML = c;
+
+    var allProducts = document.getElementById("perProductTotal");
+    for (var i = 0; i < allProducts.length; i++) {
+        totalRentalAmt2 += Int.parseInt(allProducts[i].innerHTML);
+    }
+
+
+    couponCode = document.getElementById('coupon');
+    if (couponCode !== null) {
+        if (couponCode.innerHTML === "DISCOUNT10") {
+            discountApplied2 = 0.10 * totalRentalAmt2;
+        }
+        else if (couponCode.innerHTML === "DISCOUNT15") {
+            discountApplied2 = 0.15 * totalRentalAmt2;
+        }
+        else if (couponCode.innerHTML === "DISCOUNT20") {
+            discountApplied2 = 0.2 * totalRentalAmt2;
+        }
+        else if (couponCode.innerHTML === "DISCOUNT50") {
+            discountApplied2 = 0.5 * totalRentalAmt2;
+        }
+        else {
+            alert("INVALID COUPON CODE! PLEASE TRY WITH A VALID COUPON CODE");
+        }
+
+    }
+    
+
+    taxesApplied2 = 0.05 * totalRentalAmt2;
+
+    totalRentalDep2 = 0.10 * totalRentalAmt2;
+
+    total = taxesApplied2 + totalRentalAmt2 + totalRentalDep2 - discountApplied2;
+
+
+    document.getElementById('subtotalCart').innerHTML = totalRentalAmt2;
+    document.getElementById('rentalDepositCart').innerHTML = totalRentalDep2;
+    document.getElementById('discountCart').innerHTML = discountApplied2;
+    document.getElementById('taxesAppliedCart').innerHTML = taxesApplied2;
+    document.getElementById('Total').innerHTML = total;
+
+    
+    
 
 
 }
@@ -170,7 +220,6 @@ function getTotal() {
 //    var itemsInCart = $(this).attr('itemsInCart');
 //    $('#cartNotification').attr('data-notify', itemsInCart)
 //});
-
 
 
 function updateCartNotification(count) {

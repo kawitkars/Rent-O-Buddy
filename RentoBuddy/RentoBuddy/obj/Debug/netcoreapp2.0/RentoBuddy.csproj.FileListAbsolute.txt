@@ -34,3 +34,15 @@ C:\Users\Web_Tools_Final_Local\Latest_Code_without_Auth\RentoBuddy\RentoBuddy\ob
 C:\Users\Web_Tools_Final_Local\Latest_Code_without_Auth\RentoBuddy\RentoBuddy\obj\Debug\netcoreapp2.0\RentoBuddy.AssemblyInfo.cs
 C:\Users\Web_Tools_Final_Local\Latest_Code_without_Auth\RentoBuddy\RentoBuddy\obj\Debug\netcoreapp2.0\RentoBuddy.dll
 C:\Users\Web_Tools_Final_Local\Latest_Code_without_Auth\RentoBuddy\RentoBuddy\obj\Debug\netcoreapp2.0\RentoBuddy.pdb
+D:\RENTOBUDDY_1\Web-Tools-RentOBuddy\RentoBuddy\RentoBuddy\bin\Debug\netcoreapp2.0\RentoBuddy.deps.json
+D:\RENTOBUDDY_1\Web-Tools-RentOBuddy\RentoBuddy\RentoBuddy\bin\Debug\netcoreapp2.0\RentoBuddy.runtimeconfig.json
+D:\RENTOBUDDY_1\Web-Tools-RentOBuddy\RentoBuddy\RentoBuddy\bin\Debug\netcoreapp2.0\RentoBuddy.runtimeconfig.dev.json
+D:\RENTOBUDDY_1\Web-Tools-RentOBuddy\RentoBuddy\RentoBuddy\bin\Debug\netcoreapp2.0\RentoBuddy.dll
+D:\RENTOBUDDY_1\Web-Tools-RentOBuddy\RentoBuddy\RentoBuddy\bin\Debug\netcoreapp2.0\RentoBuddy.pdb
+D:\RENTOBUDDY_1\Web-Tools-RentOBuddy\RentoBuddy\RentoBuddy\obj\Debug\netcoreapp2.0\RentoBuddy.csprojResolveAssemblyReference.cache
+D:\RENTOBUDDY_1\Web-Tools-RentOBuddy\RentoBuddy\RentoBuddy\obj\Debug\netcoreapp2.0\RentoBuddy.csproj.CoreCompileInputs.cache
+D:\RENTOBUDDY_1\Web-Tools-RentOBuddy\RentoBuddy\RentoBuddy\obj\Debug\netcoreapp2.0\UserSecretsAssemblyInfo.cs
+D:\RENTOBUDDY_1\Web-Tools-RentOBuddy\RentoBuddy\RentoBuddy\obj\Debug\netcoreapp2.0\RentoBuddy.AssemblyInfoInputs.cache
+D:\RENTOBUDDY_1\Web-Tools-RentOBuddy\RentoBuddy\RentoBuddy\obj\Debug\netcoreapp2.0\RentoBuddy.AssemblyInfo.cs
+D:\RENTOBUDDY_1\Web-Tools-RentOBuddy\RentoBuddy\RentoBuddy\obj\Debug\netcoreapp2.0\RentoBuddy.dll
+D:\RENTOBUDDY_1\Web-Tools-RentOBuddy\RentoBuddy\RentoBuddy\obj\Debug\netcoreapp2.0\RentoBuddy.pdb

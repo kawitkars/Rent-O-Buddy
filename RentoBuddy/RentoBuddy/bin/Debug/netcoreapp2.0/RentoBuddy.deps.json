@@ -5830,7 +5830,7 @@
     "System.Diagnostics.StackTrace/4.3.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-BiHg0vgtd35/DM9jvtaC1eKRpWZxr0gcQd643ABG7GnvSlf5pOkY2uyd42mMOJoOmKvnpNj0F4tuoS1pacTwYw==",
+      "sha512": "sha512-vb665Zv4ioOYXUMU2tQApNKhV35bIOM++1h7zr0rNChyMLhT0+nff3fC+iDc9aYTLpSMmRwmF6QXcNeTFU4njg==",
       "path": "system.diagnostics.stacktrace/4.3.0",
       "hashPath": "system.diagnostics.stacktrace.4.3.0.nupkg.sha512"
     },
@@ -6117,7 +6117,7 @@
     "System.Runtime.Serialization.Formatters/4.3.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-TD6K++mqSPQkkUTxrBYtGDh3/9e/p4GrY4VF5ObId3e3Bh7+mQmXPKILBfar1DEe8Ea3DtQm4z2jAR3HQuZgXw==",
+      "sha512": "sha512-ijAmJJWmCLTkr3gcGWALfTVKXOq/caVZPWhPOtcdmdK22w2OrWF0EWgL6QZJgklXrbiNupzVphU1IxAmX5F4xQ==",
       "path": "system.runtime.serialization.formatters/4.3.0",
       "hashPath": "system.runtime.serialization.formatters.4.3.0.nupkg.sha512"
     },
@@ -6313,7 +6313,7 @@
     "System.ValueTuple/4.4.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-z2Kqsk8o4Mlxlo11AhgP1Uce0g/tb8cRPKOhkX69K/giRLueKuHrjDCeP0k9oA6k5DuXCr3I7A19az7Uphrh8g==",
+      "sha512": "sha512-BahUww/+mdP4ARCAh2RQhQTg13wYLVrBb9SYVgW8ZlrwjraGCXHGjo0oIiUfZ34LUZkMMR+RAzR7dEY4S1HeQQ==",
       "path": "system.valuetuple/4.4.0",
       "hashPath": "system.valuetuple.4.4.0.nupkg.sha512"
     },
@@ -6334,7 +6334,7 @@
     "System.Xml.XmlDocument/4.3.0": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-lJ8AxvkX7GQxpC6GFCeBj8ThYVyQczx2+f/cWHJU8tjS7YfI6Cv6bon70jVEgs2CiFbmmM8b9j1oZVx0dSI2Ww==",
+      "sha512": "sha512-L3VYdAgJ+VwViseIIbFxviet1fgJU/3EfeJuhtaD03yTTlK+WQE5mEnF++DXToYVNgudmTc18vOq9yJfCYVUYg==",
       "path": "system.xml.xmldocument/4.3.0",
       "hashPath": "system.xml.xmldocument.4.3.0.nupkg.sha512"
     },

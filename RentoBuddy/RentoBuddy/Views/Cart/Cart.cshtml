@@ -1,5 +1,7 @@
 ﻿@model RentoBuddy.Models.CartViewModels.CartViewModel
 
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.4/angular.min.js"></script>
+
 @{
 Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -125,7 +127,7 @@ ViewData["Title"] = "Cart";
 
 <!-- Shoping Cart -->
 @using (Html.BeginForm("MakePayment", "Order", FormMethod.Post,
-new { @id = "addToCart", @class = "bg0 p-t-75 p-b-85" }))
+new { @id = "addToCart", @name="addToCart", @class = "bg0 p-t-75 p-b-85" , ng_app= "ngApp" }))
 {
 @Html.AntiForgeryToken()
 @Html.ValidationSummary()
@@ -209,7 +211,7 @@ htmlAttributes = new
             </div>
         </div>
 
-        <div class="col-xl-12 m-lr-auto m-b-50">
+        <div class="col-xl-12 m-lr-auto m-b-50" ng-controller="ValidationController">
             <div class="bor10 p-lr-40 p-t-30 p-b-40 m-l-63 m-r-40 m-lr-0-xl p-lr-15-sm">
                 <h4 class="mtext-109 cl2 p-b-30">
                     Customer Details
@@ -235,14 +237,19 @@ htmlAttributes = new
                                 @Html.TextBoxFor(m => m.CustomerModel.FirstName, "First Name",
 new
 {
-@class = "stext-111 cl8 plh3 size-111 p-lr-15",
-@style = "width: 100%",
-@type = "text",
-@name = "firstname",
-@id = "firstname",
-@placeholder = "First Name"
+    @class = "stext-111 cl8 plh3 size-111 p-lr-15",
+    @style = "width: 100%",
+    @type = "text",
+    @name = "firstname",
+    @id = "firstname",
+    @placeholder = "First Name",
+    @required = "",
+    ng_model = "sa.firstname",
+    ng_pattern = "/^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/"
 })
+
                             </div>
+                            <span class="error" ng-show="addToCart.CustomerModel.FirstName.$error.required">First Name is Required!</span>
                         </div>
 
                         <div class="p-t-15">
@@ -258,9 +265,13 @@ new
 @type = "text",
 @name = "lastname",
 @id = "lastname",
-@placeholder = "Last Name"
+@placeholder = "Last Name",
+@required = "",
+ng_model = "sa.lastname",
+ng_pattern = "/^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/"
 })
                             </div>
+                            <span class="error" ng-show="addToCart.CustomerModel.LastName.$error.required">Last Name is Required!</span>
                         </div>
 
                         <div class="p-t-15">
@@ -276,9 +287,13 @@ new
 @type = "text",
 @name = "emailaddress",
 @id = "emailaddress",
-@placeholder = "Email Address"
+@placeholder = "Email Address",
+@required = "",
+ng_model = "sa.emailaddress",
+ng_pattern = "/^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/"
 })
                             </div>
+                            <span class="error" ng-show="addToCart.CustomerModel.EmailAddress.$error.required">Email Address is Required!</span>
                         </div>
 
                         <div class="p-t-15">
@@ -294,9 +309,13 @@ new
 @type = "text",
 @name = "phonenumber",
 @id = "phonenumber",
-@placeholder = "Phone Number"
+@placeholder = "Phone Number",
+@required = "",
+ng_model = "sa.phonenumber",
+ng_pattern = "/^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/"
 })
                             </div>
+                            <span class="error" ng-show="addToCart.CustomerModel.PhoneNumber.$error.required">Phone Number is Required!</span>
                         </div>
 
 
@@ -328,67 +347,91 @@ new
                                 @Html.TextBoxFor(m => m.CustomerModel.Address.AddressLine1_Billing, "Address Line 1",
 new
 {
-@class = "stext-111 cl8 plh3 size-111 p-lr-15",
-@style = "width: 100%",
-@type = "text",
-@name = "addressLine1",
-@id = "addressLine1",
-@placeholder = "Address Line 1"
+    @class = "stext-111 cl8 plh3 size-111 p-lr-15",
+    @style = "width: 100%",
+    @type = "text",
+    @name = "addressLine1",
+    @id = "addressLine1",
+    @placeholder = "Address Line 1",
+    @required = "",
+    ng_model = "sa.addressline1",
+    ng_pattern = "/^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/",
+    ng_change = "sameAddress && update()"
 })
                             </div>
-
+                            <span class="error" ng-show="addToCart.CustomerModel.Address.AddressLine1_Billing.$error.required">Email Address is Required!</span>
 
                             <div class="bor8 bg0 m-b-12">
                                 @Html.TextBoxFor(m => m.CustomerModel.Address.AddressLine2_Billing, "Address Line 2",
 new
 {
-@class = "stext-111 cl8 plh3 size-111 p-lr-15",
-@style = "width: 100%",
-@type = "text",
-@name = "addressLine2",
-@id = "addressLine2",
-@placeholder = "Address Line 2"
+    @class = "stext-111 cl8 plh3 size-111 p-lr-15",
+    @style = "width: 100%",
+    @type = "text",
+    @name = "addressLine2",
+    @id = "addressLine2",
+    @placeholder = "Address Line 2",
+    @required = "",
+    ng_model = "sa.addressline2",
+    ng_pattern = "/^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/",
+    ng_change = "sameAddress && update()"
 })
                             </div>
+                            <span class="error" ng-show="addToCart.CustomerModel.Address.AddressLine2_Billing.$error.required">Email Address is Required!</span>
 
                             <div class="bor8 bg0 m-b-12">
                                 @Html.TextBoxFor(m => m.CustomerModel.Address.City_Billing, "City",
 new
 {
-@class = "stext-111 cl8 plh3 size-111 p-lr-15",
-@style = "width: 100%",
-@type = "text",
-@name = "city",
-@id = "city",
-@placeholder = "City"
+    @class = "stext-111 cl8 plh3 size-111 p-lr-15",
+    @style = "width: 100%",
+    @type = "text",
+    @name = "city",
+    @id = "city",
+    @placeholder = "City",
+    @required = "",
+    ng_model = "sa.city",
+    ng_pattern = "/^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/",
+    ng_change = "sameAddress && update()"
 })
                             </div>
+                            <span class="error" ng-show="addToCart.CustomerModel.Address.City_Billing.$error.required">Email Address is Required!</span>
 
                             <div class="bor8 bg0 m-b-12">
                                 @Html.TextBoxFor(m => m.CustomerModel.Address.State_Billing, "State",
 new
 {
-@class = "stext-111 cl8 plh3 size-111 p-lr-15",
-@style = "width: 100%",
-@type = "text",
-@name = "state",
-@id = "state",
-@placeholder = "State"
+    @class = "stext-111 cl8 plh3 size-111 p-lr-15",
+    @style = "width: 100%",
+    @type = "text",
+    @name = "state",
+    @id = "state",
+    @placeholder = "State",
+    @required = "",
+    ng_model = "sa.state",
+    ng_pattern = "/^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/",
+    ng_change = "sameAddress && update()"
 })
                             </div>
+                            <span class="error" ng-show="addToCart.CustomerModel.Address.State_Billing.$error.required">Email Address is Required!</span>
 
                             <div class="bor8 bg0 m-b-22">
                                 @Html.TextBoxFor(m => m.CustomerModel.Address.ZipCode_Billing, "Zipcode",
 new
 {
-@class = "stext-111 cl8 plh3 size-111 p-lr-15",
-@style = "width: 100%",
-@type = "text",
-@name = "zipcode",
-@id = "zipcode",
-@placeholder = "Zipcode"
+    @class = "stext-111 cl8 plh3 size-111 p-lr-15",
+    @style = "width: 100%",
+    @type = "text",
+    @name = "zipcode",
+    @id = "zipcode",
+    @placeholder = "Zipcode",
+    @required = "",
+    ng_model = "sa.zipcode",
+    ng_pattern = "/^\\d{5}(?:[-\\s]\\d{4})?$/",
+    ng_change = "sameAddress && update()"
 })
                             </div>
+                            <span class="error" ng-show="addToCart.CustomerModel.Address.ZipCode_Billing.$error.required">Email Address is Required!</span>
 
                             <div class="rs1-select2 rs2-select2 bor8 bg0 m-b-12 m-t-9">
                                 @Html.DropDownListFor(m => m.CustomerModel.Address.Country_Billing,
@@ -405,15 +448,16 @@ new
 @name = "time"
 })
                                 @*<select class="js-select2" name="time">
-                            <option>Select a country...</option>
-                            <option>USA</option>
-                            <option>UK</option>
-                        </select>*@
+                <option>Select a country...</option>
+                <option>USA</option>
+                <option>UK</option>
+            </select>*@
                                 <div class="dropDownSelect2"></div>
                             </div>
 
                             <div class="bg0 m-b-12">
-                                @Html.CheckBoxFor(m => m.CustomerModel.Address.IsSameAsBilling, "Shipping Address Same as Billing Address")
+                                @Html.CheckBoxFor(m => m.CustomerModel.Address.IsSameAsBilling,
+new { ng_model = "sameAddress", ng_change = "sameAddress && update()" })
                                 <span class="stext-112 cl8">
                                     Shipping Address is same as Billing Address
                                 </span>
@@ -451,9 +495,14 @@ new
 @type = "text",
 @name = "addressLine1",
 @id = "addressLine1",
-@placeholder = "Address Line 1"
+@placeholder = "Address Line 1",
+ng_model = "ba.addressline1",
+ng_disabled = "sameAddress",
+@required = "",
+ng_pattern = "/^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/"
 })
                             </div>
+                            <span class="error" ng-show="addToCart.CustomerModel.Address.AddressLine1_Shipping.$error.required">Address Line1 is Required!</span>
 
 
                             <div class="bor8 bg0 m-b-12">
@@ -465,9 +514,14 @@ new
 @type = "text",
 @name = "addressLine2",
 @id = "addressLine2",
-@placeholder = "Address Line 2"
+@placeholder = "Address Line 2",
+ng_model = "ba.addressline2",
+ng_disabled = "sameAddress",
+@required = "",
+ng_pattern = "/^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/"
 })
                             </div>
+                            <span class="error" ng-show="addToCart.CustomerModel.Address.AddressLine2_Shipping.$error.required">Address Line 2 is Required!</span>
 
                             <div class="bor8 bg0 m-b-12">
                                 @Html.TextBoxFor(m => m.CustomerModel.Address.City_Shipping, "City",
@@ -478,9 +532,14 @@ new
 @type = "text",
 @name = "city",
 @id = "city",
-@placeholder = "City"
+@placeholder = "City",
+ng_model = "ba.city",
+ng_disabled = "sameAddress",
+@required = "",
+ng_pattern = "/^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/"
 })
                             </div>
+                            <span class="error" ng-show="addToCart.CustomerModel.Address.City_Shipping.$error.required">City is Required!</span>
 
                             <div class="bor8 bg0 m-b-12">
                                 @Html.TextBoxFor(m => m.CustomerModel.Address.State_Shipping, "State",
@@ -491,9 +550,14 @@ new
 @type = "text",
 @name = "state",
 @id = "state",
-@placeholder = "State"
+@placeholder = "State",
+ng_model = "ba.state",
+ng_disabled = "sameAddress",
+@required = "",
+ng_pattern = "/^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/"
 })
                             </div>
+                            <span class="error" ng-show="addToCart.CustomerModel.Address.State_Shipping.$error.required">State is Required!</span>
 
                             <div class="bor8 bg0 m-b-22">
                                 @Html.TextBoxFor(m => m.CustomerModel.Address.ZipCode_Shipping, "Zipcode",
@@ -504,9 +568,14 @@ new
 @type = "text",
 @name = "zipcode",
 @id = "zipcode",
-@placeholder = "Zipcode"
+@placeholder = "Zipcode",
+ng_model = "ba.zipcode",
+ng_disabled = "sameAddress",
+@required = "",
+ng_pattern = "/^[a-zA-Z]+(([',. -][a-zA-Z ])?[a-zA-Z]*)*$/"
 })
                             </div>
+                            <span class="error" ng-show="addToCart.CustomerModel.Address.ZipCode_Shipping.$error.required">Zipcode is Required!</span>
 
                             <div class="rs1-select2 rs2-select2 bor8 bg0 m-b-12 m-t-9">
                                 @Html.DropDownListFor(m => m.CustomerModel.Address.Country_Shipping,
@@ -523,10 +592,10 @@ new
 @name = "time"
 })
                                 @*<select class="js-select2" name="time">
-                            <option>Select a country...</option>
-                            <option>USA</option>
-                            <option>UK</option>
-                        </select>*@
+                <option>Select a country...</option>
+                <option>USA</option>
+                <option>UK</option>
+            </select>*@
                                 <div class="dropDownSelect2"></div>
                             </div>
 
@@ -626,3 +695,18 @@ new
 </div>
 }
 
+<script>
+    var myApp = angular.module('ngApp', []);
+
+    myApp.controller('ValidationController', function ($scope) {
+
+        $scope.sa = {};
+        $scope.ba = {};
+
+        $scope.update = function (sa) {
+            $scope.ba = angular.copy($scope.sa);
+        };
+
+        
+    });
+</script>

@@ -27,8 +27,8 @@ namespace RentoBuddy.Controllers
             orderModel.OrderProductModel = cartViewModel.ProductsInCart;
             orderModel.PaymentModel = new Models.PaymentViewModels.PaymentModel();
             orderModel.DiscountCode = cartViewModel.CouponCodeApplied;
-            
-            foreach(OrderProductModel orderProductModel in orderModel.OrderProductModel)
+
+            foreach (OrderProductModel orderProductModel in orderModel.OrderProductModel)
             {
                 orderProductModel.RentAmount = orderProductModel.ProductData[0].RentPerMonth *
                     orderProductModel.RentalDurationInMonths;
@@ -37,11 +37,11 @@ namespace RentoBuddy.Controllers
                 orderModel.TotalRentalDeposit += orderProductModel.RentalDeposit;
             }
 
-            if(orderModel.DiscountCode == "DISCOUNT10")
+            if (orderModel.DiscountCode == "DISCOUNT10")
             {
                 orderModel.DiscountApplied = 0.10 * orderModel.TotalRentAmount;
             }
-            else if(orderModel.DiscountCode == "DISCOUNT15")
+            else if (orderModel.DiscountCode == "DISCOUNT15")
             {
                 orderModel.DiscountApplied = 0.15 * orderModel.TotalRentAmount;
             }
@@ -58,11 +58,11 @@ namespace RentoBuddy.Controllers
             orderModel.TotalCostForOrder = (orderModel.TotalRentAmount - orderModel.DiscountApplied)
                                             + orderModel.TotalRentalDeposit
                                             + orderModel.TaxesApplied;
-            
+
             HttpContext.Session.SetObjectAsJson("OrderModel", orderModel);
             return View("Payment");
         }
-        
+
 
         [HttpPost]
         [Authorize]
@@ -89,7 +89,7 @@ namespace RentoBuddy.Controllers
             orderModel.RentEndDate = orderModel.RentStartDate.AddMonths(orderModel.OrderProductModel[0].RentalDurationInMonths);
 
             HttpContext.Session.SetObjectAsJson("OrderModel", orderModel);
-            return View();
+            return View(orderModel);
         }
 
     }

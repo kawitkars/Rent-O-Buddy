@@ -132,29 +132,7 @@ function onQtyChangedUp() {
 
     var a = document.getElementById('num-product1').value;
     a = parseInt(a) + 1;
-    //alert(a);
     var b = document.getElementById('rentPerMonth').innerHTML;
-    //alert(b);
-    var d = document.getElementById('ProductsInCart_0__RentalDurationInMonths').value;
-    //alert(d);
-
-    var c = d * a * b;
-    document.getElementById('perProductTotal') = c;
-    getTotal();
-
-    //alert(c);
-
-    //document.getElementById('sub-total').innerHTML = 
-
-}
-
-function onQtyChangedDown() {
-
-    var a = document.getElementById('num-product1').value;
-    a = parseInt(a) - 1;
-    //alert(a);
-    var b = document.getElementById('rentPerMonth').innerHTML;
-    //alert(b);
     var d = document.getElementById('ProductsInCart_0__RentalDurationInMonths').value;
     //alert(d);
 
@@ -162,22 +140,20 @@ function onQtyChangedDown() {
     document.getElementById('perProductTotal').innerHTML = c;
 
 
-    if (!isNaN(c)) {
+}
 
-        document.getElementById('perProductTotal').val(c.toFixed(2));
-        var grandTotal = 0;
+function onQtyChangedDown() {
 
-        documment.getElementById('perProductTotal').each(function () {
-            var stval = parseFloat($(this).val());
-            grandTotal += isNaN(stval) ? 0 : stval;
-        });
+    var a = document.getElementById('num-product1').value;
+    a = parseInt(a) - 1;
+    var b = document.getElementById('rentPerMonth').innerHTML;
+    var d = document.getElementById('ProductsInCart_0__RentalDurationInMonths').value;
 
-        document.getElementById('cartProduct_TotalCostForProduct').val(grandTotal.toFixed(2));
-    }
+    var c = d * a * b;
+    document.getElementById('perProductTotal').innerHTML = c;
 
-    //alert(c);
 
-    //document.getElementById('sub-total').innerHTML = 
+   
 
 }
 
@@ -188,4 +164,19 @@ function getTotal() {
     $('#cartProduct_TotalCostForProduct').text(total);
 }
 
+
+//$('#btnAddToCart').click(function (e) {
+//    //e.preventDefault();
+//    var itemsInCart = $(this).attr('itemsInCart');
+//    $('#cartNotification').attr('data-notify', itemsInCart)
+//});
+
+
+
+function updateCartNotification(count) {
+    
+    alert(count);
+    $('#cartNotification').removeAttr('data-notify');
+    $('#cartNotification').attr('data-notify', count);
+}
 

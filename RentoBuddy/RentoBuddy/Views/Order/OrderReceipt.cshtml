@@ -84,22 +84,28 @@
                                         <td class="text-center"><strong>Product Quantity</strong></td>
                                         <td class="text-center"><strong>Rental Deposit</strong></td>
                                         <td class="text-center"><strong>Rental Duration</strong></td>
+                                        <td class="text-center"><strong>Rent Start Date</strong></td>
+                                        <td class="text-center"><strong>Rent End Date</strong></td>
                                         <td class="text-right"><strong>Product Total</strong></td>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     @foreach (var product in Model.OrderProductModel)
                                     {
-                                        <tr>
-                                            <td>@product.ProductData[0].ProductName</td>
-                                            <td class="text-center">$@product.RentAmount</td>
-                                            <td class="text-center">@product.Quantity</td>
-                                            <td class="text-center">@product.RentalDeposit</td>
-                                            <td class="text-center">@product.RentalDurationInMonths months</td>
-                                            <td class="text-right">$@product.TotalCostForProduct</td>
-                                        </tr>
+                                    <tr>
+                                        <td>@product.ProductData[0].ProductName</td>
+                                        <td class="text-center">$@product.RentAmount</td>
+                                        <td class="text-center">@product.Quantity</td>
+                                        <td class="text-center">@product.RentalDeposit</td>
+                                        <td class="text-center">@product.RentalDurationInMonths months</td>
+                                        <td class="text-center">@product.RentStartDate.ToShortDateString()</td>
+                                        <td class="text-center">@product.RentEndDate.ToShortDateString()</td>
+                                        <td class="text-right">$@product.RentAmount</td>
+                                    </tr>
                                     }
                                     <tr>
+                                        <td class="highrow"></td>
+                                        <td class="highrow"></td>
                                         <td class="highrow"></td>
                                         <td class="highrow"></td>
                                         <td class="highrow"></td>
@@ -112,6 +118,8 @@
                                         <td class="highrow"></td>
                                         <td class="highrow"></td>
                                         <td class="highrow"></td>
+                                        <td class="highrow"></td>
+                                        <td class="highrow"></td>
                                         <td class="highrow text-center"><strong>Discount Applied</strong></td>
                                         <td class="highrow text-right">$@Model.DiscountApplied</td>
                                     </tr>
@@ -120,10 +128,14 @@
                                         <td class="emptyrow"></td>
                                         <td class="emptyrow"></td>
                                         <td class="emptyrow"></td>
+                                        <td class="emptyrow"></td>
+                                        <td class="emptyrow"></td>
                                         <td class="emptyrow text-center"><strong>Tax Applied</strong></td>
                                         <td class="emptyrow text-right">$@Model.TaxesApplied</td>
                                     </tr>
                                     <tr>
+                                        <td class="emptyrow"></td>
+                                        <td class="emptyrow"></td>
                                         <td class="emptyrow"></td>
                                         <td class="emptyrow"></td>
                                         <td class="emptyrow"></td>
@@ -137,10 +149,14 @@
                                         <td class="highrow"></td>
                                         <td class="highrow"></td>
                                         <td class="highrow"></td>
+                                        <td class="highrow"></td>
+                                        <td class="highrow"></td>
                                         <td class="highrow text-center"><strong>TOTAL</strong></td>
                                         <td class="highrow text-right">$@Model.TotalCostForOrder</td>
                                     </tr>
                                     <tr>
+                                        <td class="highrow"></td>
+                                        <td class="highrow"></td>
                                         <td class="highrow"></td>
                                         <td class="highrow"></td>
                                         <td class="highrow"></td>

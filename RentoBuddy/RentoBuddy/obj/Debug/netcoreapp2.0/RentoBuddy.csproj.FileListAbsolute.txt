@@ -70,3 +70,14 @@ C:\Web Tools\FINAL_PROJECT_RENT_O_BUDDY\Commit after MongoDB working_5.32\RentoB
 C:\Web Tools\FINAL_PROJECT_RENT_O_BUDDY\Commit after MongoDB working_5.32\RentoBuddy\RentoBuddy\obj\Debug\netcoreapp2.0\RentoBuddy.AssemblyInfo.cs
 C:\Web Tools\FINAL_PROJECT_RENT_O_BUDDY\Commit after MongoDB working_5.32\RentoBuddy\RentoBuddy\obj\Debug\netcoreapp2.0\RentoBuddy.dll
 C:\Web Tools\FINAL_PROJECT_RENT_O_BUDDY\Commit after MongoDB working_5.32\RentoBuddy\RentoBuddy\obj\Debug\netcoreapp2.0\RentoBuddy.pdb
+C:\Web Tools\FINAL_PROJECT_RENT_O_BUDDY\WIth_Neha_Code_Final\RentoBuddy\RentoBuddy\bin\Debug\netcoreapp2.0\RentoBuddy.deps.json
+C:\Web Tools\FINAL_PROJECT_RENT_O_BUDDY\WIth_Neha_Code_Final\RentoBuddy\RentoBuddy\bin\Debug\netcoreapp2.0\RentoBuddy.runtimeconfig.json
+C:\Web Tools\FINAL_PROJECT_RENT_O_BUDDY\WIth_Neha_Code_Final\RentoBuddy\RentoBuddy\bin\Debug\netcoreapp2.0\RentoBuddy.runtimeconfig.dev.json
+C:\Web Tools\FINAL_PROJECT_RENT_O_BUDDY\WIth_Neha_Code_Final\RentoBuddy\RentoBuddy\bin\Debug\netcoreapp2.0\RentoBuddy.dll
+C:\Web Tools\FINAL_PROJECT_RENT_O_BUDDY\WIth_Neha_Code_Final\RentoBuddy\RentoBuddy\bin\Debug\netcoreapp2.0\RentoBuddy.pdb
+C:\Web Tools\FINAL_PROJECT_RENT_O_BUDDY\WIth_Neha_Code_Final\RentoBuddy\RentoBuddy\obj\Debug\netcoreapp2.0\RentoBuddy.csproj.CoreCompileInputs.cache
+C:\Web Tools\FINAL_PROJECT_RENT_O_BUDDY\WIth_Neha_Code_Final\RentoBuddy\RentoBuddy\obj\Debug\netcoreapp2.0\UserSecretsAssemblyInfo.cs
+C:\Web Tools\FINAL_PROJECT_RENT_O_BUDDY\WIth_Neha_Code_Final\RentoBuddy\RentoBuddy\obj\Debug\netcoreapp2.0\RentoBuddy.AssemblyInfoInputs.cache
+C:\Web Tools\FINAL_PROJECT_RENT_O_BUDDY\WIth_Neha_Code_Final\RentoBuddy\RentoBuddy\obj\Debug\netcoreapp2.0\RentoBuddy.AssemblyInfo.cs
+C:\Web Tools\FINAL_PROJECT_RENT_O_BUDDY\WIth_Neha_Code_Final\RentoBuddy\RentoBuddy\obj\Debug\netcoreapp2.0\RentoBuddy.dll
+C:\Web Tools\FINAL_PROJECT_RENT_O_BUDDY\WIth_Neha_Code_Final\RentoBuddy\RentoBuddy\obj\Debug\netcoreapp2.0\RentoBuddy.pdb

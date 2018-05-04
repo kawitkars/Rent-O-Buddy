@@ -13696,11 +13696,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Web Tools\\FINAL_PROJECT_RENT_O_BUDDY\\Commit after MongoDB working_5.32\\RentoBuddy\\RentoBuddy\\RentoBuddy.csproj",
+      "projectUniqueName": "C:\\Web Tools\\FINAL_PROJECT_RENT_O_BUDDY\\WIth_Neha_Code_Final\\RentoBuddy\\RentoBuddy\\RentoBuddy.csproj",
       "projectName": "RentoBuddy",
-      "projectPath": "C:\\Web Tools\\FINAL_PROJECT_RENT_O_BUDDY\\Commit after MongoDB working_5.32\\RentoBuddy\\RentoBuddy\\RentoBuddy.csproj",
+      "projectPath": "C:\\Web Tools\\FINAL_PROJECT_RENT_O_BUDDY\\WIth_Neha_Code_Final\\RentoBuddy\\RentoBuddy\\RentoBuddy.csproj",
       "packagesPath": "C:\\Users\\Sneha\\.nuget\\packages\\",
-      "outputPath": "C:\\Web Tools\\FINAL_PROJECT_RENT_O_BUDDY\\Commit after MongoDB working_5.32\\RentoBuddy\\RentoBuddy\\obj\\",
+      "outputPath": "C:\\Web Tools\\FINAL_PROJECT_RENT_O_BUDDY\\WIth_Neha_Code_Final\\RentoBuddy\\RentoBuddy\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackagesFallback\\",

@@ -20,6 +20,10 @@ namespace RentoBuddy.Models.OrderViewModels
         public double TotalCostForProduct { get; set; }
 
         public int Quantity { get; set; }
+
+        public DateTime RentStartDate { get; set; }
+
+        public DateTime RentEndDate { get; set; }
     }
 
 

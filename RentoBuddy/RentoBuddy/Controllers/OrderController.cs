@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
@@ -15,6 +15,14 @@ namespace RentoBuddy.Controllers
     public class OrderController : Controller
     {
         public static int orderId = 1;
+
+        [Authorize]
+        public IActionResult MakePayment()
+        {
+            return View("Payment");
+            
+        }
+
 
         [HttpPost]
         [Authorize]
@@ -33,7 +41,7 @@ namespace RentoBuddy.Controllers
                 orderProductModel.RentAmount = orderProductModel.ProductData[0].RentPerMonth *
                     orderProductModel.RentalDurationInMonths * orderProductModel.Quantity;
                 orderModel.TotalRentAmount += orderProductModel.RentAmount;
-                
+
             }
 
             orderModel.TotalRentalDeposit = 0.10 * orderModel.TotalRentAmount;
@@ -77,8 +85,6 @@ namespace RentoBuddy.Controllers
             orderModel.DiscountCode = orderModelOld.DiscountCode;
             orderModel.OrderId = orderModelOld.OrderId;
             orderModel.OrderProductModel = orderModelOld.OrderProductModel;
-            orderModel.RentEndDate = orderModelOld.RentEndDate;
-            orderModel.RentStartDate = orderModelOld.RentStartDate;
             orderModel.TaxesApplied = orderModelOld.TaxesApplied;
             orderModel.TotalCostForOrder = orderModelOld.TotalCostForOrder;
             orderModel.TotalRentalDeposit = orderModelOld.TotalRentalDeposit;
@@ -86,11 +92,25 @@ namespace RentoBuddy.Controllers
 
             //Generate an unique order receipt number
             orderModel.OrderReceiptNumber = HelperMethods.HelperMethods.RandomString(10);
-            orderModel.RentStartDate = DateTime.Now.AddMonths(1);
-            orderModel.RentEndDate = orderModel.RentStartDate.AddMonths(orderModel.OrderProductModel[0].RentalDurationInMonths);
+            foreach(OrderProductModel ordProductModel in orderModel.OrderProductModel)
+            {
+                ordProductModel.RentStartDate = DateTime.Now.AddMonths(1);
+                ordProductModel.RentEndDate = ordProductModel.RentStartDate.AddMonths(orderModel.OrderProductModel[0].RentalDurationInMonths);
+
+            }
 
             HttpContext.Session.SetObjectAsJson("OrderModel", orderModel);
             return View(orderModel);
+        }
+
+        
+        [Authorize]
+        public IActionResult OrderReceiptHistory(OrderModel orderModel)
+        {
+            
+            OrderModel orderModelOld = HttpContext.Session.GetObjectFromJson<OrderModel>("OrderModel");
+            
+            return View("OrderReceipt",orderModelOld);
         }
 
     }

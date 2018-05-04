@@ -9,7 +9,11 @@
     <form asp-area="" asp-controller="Account" asp-action="Logout" method="post" id="logoutForm" class="navbar-right">
         <ul class="main-menu">
             <li>
-                <a asp-area="" asp-controller="Manage" asp-action="Index" title="Manage">Hello, @UserManager.GetUserName(User)!</a>
+                <a asp-area="" asp-controller="Manager" asp-action="Index" title="Manage" class="dropdown-toggle" data-toggle="dropdown"
+                   >Hello, @UserManager.GetUserName(User)!<b class="caret"></b></a>
+                <ul class="dropdown-menu" style="list-style-type: none; font-size: 12px;">
+                    <li><a asp-area="" asp-controller="Order" asp-action="OrderReceiptHistory">View Customer History</a></li>
+                </ul>
             </li>
             <li>
                 <button type="submit">Logout</button>

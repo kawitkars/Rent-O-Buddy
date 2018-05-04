@@ -53,3 +53,14 @@ C:\Web Tools\FINAL_PROJECT_RENT_O_BUDDY\Commit after MongoDB working_5.32\RentoB
 C:\Web Tools\FINAL_PROJECT_RENT_O_BUDDY\Commit after MongoDB working_5.32\RentoBuddy\RentoBuddyAPI\obj\Debug\netcoreapp2.0\RentoBuddyAPI.AssemblyInfo.cs
 C:\Web Tools\FINAL_PROJECT_RENT_O_BUDDY\Commit after MongoDB working_5.32\RentoBuddy\RentoBuddyAPI\obj\Debug\netcoreapp2.0\RentoBuddyAPI.dll
 C:\Web Tools\FINAL_PROJECT_RENT_O_BUDDY\Commit after MongoDB working_5.32\RentoBuddy\RentoBuddyAPI\obj\Debug\netcoreapp2.0\RentoBuddyAPI.pdb
+C:\Web Tools\FINAL_PROJECT_RENT_O_BUDDY\WIth_Neha_Code_Final\RentoBuddy\RentoBuddyAPI\bin\Debug\netcoreapp2.0\RentoBuddyAPI.deps.json
+C:\Web Tools\FINAL_PROJECT_RENT_O_BUDDY\WIth_Neha_Code_Final\RentoBuddy\RentoBuddyAPI\bin\Debug\netcoreapp2.0\RentoBuddyAPI.runtimeconfig.json
+C:\Web Tools\FINAL_PROJECT_RENT_O_BUDDY\WIth_Neha_Code_Final\RentoBuddy\RentoBuddyAPI\bin\Debug\netcoreapp2.0\RentoBuddyAPI.runtimeconfig.dev.json
+C:\Web Tools\FINAL_PROJECT_RENT_O_BUDDY\WIth_Neha_Code_Final\RentoBuddy\RentoBuddyAPI\bin\Debug\netcoreapp2.0\RentoBuddyAPI.dll
+C:\Web Tools\FINAL_PROJECT_RENT_O_BUDDY\WIth_Neha_Code_Final\RentoBuddy\RentoBuddyAPI\bin\Debug\netcoreapp2.0\RentoBuddyAPI.pdb
+C:\Web Tools\FINAL_PROJECT_RENT_O_BUDDY\WIth_Neha_Code_Final\RentoBuddy\RentoBuddyAPI\obj\Debug\netcoreapp2.0\RentoBuddyAPI.csproj.CoreCompileInputs.cache
+C:\Web Tools\FINAL_PROJECT_RENT_O_BUDDY\WIth_Neha_Code_Final\RentoBuddy\RentoBuddyAPI\obj\Debug\netcoreapp2.0\RentoBuddyAPI.AssemblyInfoInputs.cache
+C:\Web Tools\FINAL_PROJECT_RENT_O_BUDDY\WIth_Neha_Code_Final\RentoBuddy\RentoBuddyAPI\obj\Debug\netcoreapp2.0\RentoBuddyAPI.AssemblyInfo.cs
+C:\Web Tools\FINAL_PROJECT_RENT_O_BUDDY\WIth_Neha_Code_Final\RentoBuddy\RentoBuddyAPI\obj\Debug\netcoreapp2.0\RentoBuddyAPI.dll
+C:\Web Tools\FINAL_PROJECT_RENT_O_BUDDY\WIth_Neha_Code_Final\RentoBuddy\RentoBuddyAPI\obj\Debug\netcoreapp2.0\RentoBuddyAPI.pdb
+C:\Web Tools\FINAL_PROJECT_RENT_O_BUDDY\WIth_Neha_Code_Final\RentoBuddy\RentoBuddyAPI\obj\Debug\netcoreapp2.0\RentoBuddyAPI.csprojResolveAssemblyReference.cache
